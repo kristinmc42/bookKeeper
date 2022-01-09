@@ -1,5 +1,7 @@
 // firebase.js
-import { initializeApp } from 'firebase/app';
+import firebase from "firebase";
+import "firebase/database";
+
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -13,7 +15,7 @@ const firebaseConfig = {
 };
 
 // setting a variable that initializes our application
-const firebase = initializeApp(config);
+firebase.initializeApp(firebaseConfig);
 
 // this exports the CONFIGURED version of firebase
 export default firebase;
