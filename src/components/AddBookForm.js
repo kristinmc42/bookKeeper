@@ -1,13 +1,12 @@
 import firebase from "../firebase";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 
-function BookForm () {
+function AddBookForm () {
   // set state
   const [ userInput, setUserInput ] = useState("");
   const [ optionChoice, setOptionChoice ] = useState("");
-  // const [ bookTitle, setBookTitle ] = useState("");
 
   // track user input
   const handleInputChange = (event) => {
@@ -28,19 +27,17 @@ function BookForm () {
     const dbRef = firebase.database().ref();
 
     // store user input in database
-    const bookInfo = { userInput, optionChoice }
-    console.log(bookInfo)
+    const bookInfo = { title: userInput, category: optionChoice };
+    console.log(bookInfo);
+
+    // store book info in database
+    dbRef.push(bookInfo);
+
+    // clear values of state
+    setUserInput("");
+    setOptionChoice("");
   }
   
-  // useEffect(() => {
-  //   // reference the databse
-  //   const dbRef = firebase.database().ref();
-    
-  //   //add event listener to watch for changes to the database
-  //   dbRef.on("value", (response) => {
-  //   })
-
-  // }, []);
 
   return(
     <form action="submit" onSubmit={handleFormSubmit}>
@@ -66,4 +63,4 @@ function BookForm () {
   )
 }
 
-export default BookForm;
+export default AddBookForm;
