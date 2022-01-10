@@ -7,21 +7,34 @@ function DisplayBooks({ allBooks }){
 
   useEffect(() => {
     console.log(allBooks)
+    setReadBooks([]);
+    setBooksToRead([]);
+    setBooksCurrentlyReading([]);
+    const newToReadArray = [];
+    const newReadArray = [];
+    const newCurrentlyReadingArray = [];
+
+
       allBooks.forEach((book) => {
         console.log(book, book.bookInfo.category)
         if (book.bookInfo.category === "read"){
-          setReadBooks(...readBooks, book);
-          console.log(readBooks)
+          // const newReadArray = [...readBooks, book]
+          newReadArray.push(book);
+          setReadBooks(newReadArray);
+          console.log(newReadArray)
         }else if (book.bookInfo.category === "toRead"){
-          console.log("inside toRead else if")
-          setBooksToRead(...booksToRead, book);
-          console.log(booksToRead)
+          // const newToReadArray = [...booksToRead, book];
+          newToReadArray.push(book)
+          setBooksToRead(newToReadArray);
+          console.log(newToReadArray)
         }else if (book.bookInfo.category === "currentlyReading"){
-          setBooksCurrentlyReading(...booksCurrentlyReading, book);
-          console.log(booksCurrentlyReading)
+          // const newCurrentlyReadingArray = [...booksCurrentlyReading, book];
+          newCurrentlyReadingArray.push(book);
+          setBooksCurrentlyReading(newCurrentlyReadingArray);
+          console.log(newCurrentlyReadingArray)
         }
       })
-  }, [])
+  }, [allBooks])
 
   return(
     <>
@@ -45,6 +58,7 @@ function DisplayBooks({ allBooks }){
         {
           booksCurrentlyReading
           ? booksCurrentlyReading.map((currentBook) => {
+            console.log(currentBook)
             return(
               <li key={currentBook.bookID}>
                 <p>{currentBook.bookInfo.title}</p>
@@ -59,6 +73,7 @@ function DisplayBooks({ allBooks }){
         {
           booksToRead
           ? booksToRead.map((toReadBook) => {
+            console.log(toReadBook);
             return(
               <li key={toReadBook.bookID}>
                 <p>{toReadBook.bookInfo.title}</p>
