@@ -1,5 +1,5 @@
-import firebase from "firebase";
-import "./App.css";
+import firebase from "./firebase.js";
+import "./App.scss";
 import { useState, useEffect } from "react";
 
 // components

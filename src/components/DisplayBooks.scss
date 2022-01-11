@@ -1,0 +1,20 @@
+@import "../colors";
+
+h2 {
+  text-align: center;
+  color: $secondaryColour;
+}
+
+ul {
+  list-style: none;
+}
+
+.bookshelf {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2em;
+  text-align: center;
+  ul {
+    padding: 0;
+  }
+}
