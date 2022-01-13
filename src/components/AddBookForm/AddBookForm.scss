@@ -1,0 +1,15 @@
+@import "../../colors";
+
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: $background;
+  padding: 2em;
+
+  input, select{
+    background-color: $background;
+    border: 2px double $secondaryColor;
+    padding: .4em;
+    margin: .6em 0;
+  }
+}

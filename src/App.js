@@ -3,8 +3,9 @@ import "./App.scss";
 import { useState, useEffect } from "react";
 
 // components
-import AddBookForm from "./components/AddBookForm";
-import DisplayBooks from "./components/DisplayBooks";
+import AddBookForm from "./components/AddBookForm/AddBookForm";
+import DisplayBooks from "./components/DisplayBooks/DisplayBooks";
+import Card from "./components/Card/Card.js";
 
 
 function App() {
@@ -36,9 +37,18 @@ function App() {
     }, []);
   return (
     <>
-    <h1>Book Keeper</h1>
+    <header>
+      <h1>Book Keeper</h1>
+    </header>
+    <main>
       <DisplayBooks allBooks={ books }/>
-      <AddBookForm/>
+      <Card className="addBook">
+        <AddBookForm />
+      </Card>
+    </main>
+    <footer>
+      <p>Designed by Kristin McCollum</p>
+    </footer>
     </>
   );
 }

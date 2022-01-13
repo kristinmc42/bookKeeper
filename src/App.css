@@ -1,0 +1,27 @@
+main {
+  background-image: url(../public/books.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: #919191;
+  height: 89vh;
+}
+
+header {
+  background-color: #919191;
+}
+header h1 {
+  margin: 0;
+  padding: 0.5em;
+  text-align: center;
+  color: #f6f6b8;
+}
+
+footer {
+  background-color: #919191;
+  text-align: center;
+}
+footer p {
+  margin: 0;
+}/*# sourceMappingURL=App.css.map */

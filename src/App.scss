@@ -1,12 +1,32 @@
 @import "colors";
 
 
-// .App {
-//   text-align: center;
-// }
 
+main {
+  background-image: url(../public/books.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: $background;
+  height: 89vh;
+}
 
-h1 {
+header {
+  background-color: $background;
+
+  h1 {
+    margin: 0;
+    padding: .5em;
+    text-align: center;
+    color: $secondaryColor;
+  }
+}
+
+footer {
+  background-color: $background;
   text-align: center;
-  color: $primaryColour;
+  p{
+    margin: 0;
+  }
 }
