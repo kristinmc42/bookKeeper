@@ -4,12 +4,19 @@ form {
   display: flex;
   flex-direction: column;
   background-color: $background;
-  padding: 2em;
+  padding: 1em;
 
   input, select{
     background-color: $background;
     border: 2px double $secondaryColor;
+    border-radius: 5px;
+    box-shadow: 3px 3px $text;
+    font-size: clamp(1rem, 2vw, 3rem);
     padding: .4em;
     margin: .6em 0;
+  }
+
+  label {
+    font-size: clamp(1rem, 2vw, 3rem);
   }
 }

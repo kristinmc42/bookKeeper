@@ -1,5 +1,6 @@
 import firebase from "../../firebase.js";
 import "./AddBookForm.scss";
+import Button from "../Button/Button.js";
 import { useState } from "react";
 
 
@@ -47,7 +48,7 @@ function AddBookForm () {
       <input 
         type="text" 
         id="bookTitle" 
-        placeholder="Enter a title"
+        placeholder="Enter book title"
         onChange={handleInputChange}
         value={userInput}
       />
@@ -60,7 +61,7 @@ function AddBookForm () {
         <option value="currentlyReading">Currently Reading</option>
       </select>
 
-      <button>Add book</button>
+      <Button text="Add book" />
     </form>
   )
 }

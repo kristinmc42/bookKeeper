@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import AddBookForm from "./components/AddBookForm/AddBookForm";
 import DisplayBooks from "./components/DisplayBooks/DisplayBooks";
 import Card from "./components/Card/Card.js";
+import BookshelfChanges from "./components/BookshelfChanges/BookshelfChanges.js";
 
 
 function App() {
@@ -37,18 +38,23 @@ function App() {
     }, []);
   return (
     <>
-    <header>
-      <h1>Book Keeper</h1>
-    </header>
-    <main>
-      <DisplayBooks allBooks={ books }/>
-      <Card className="addBook">
-        <AddBookForm />
-      </Card>
-    </main>
-    <footer>
-      <p>Designed by Kristin McCollum</p>
-    </footer>
+    <div className="pageContainer">
+      <header>
+        <h1>Book Keeper</h1>
+      </header>
+
+      <main>
+        <BookshelfChanges />
+        <DisplayBooks allBooks={ books }/>
+        <Card className="addBook">
+          {/* <AddBookForm /> */}
+        </Card>
+      </main>
+
+      <footer>
+        <p>Designed by Kristin McCollum</p>
+      </footer>
+    </div>
     </>
   );
 }

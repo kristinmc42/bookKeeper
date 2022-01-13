@@ -2,10 +2,12 @@
 
 .card{
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 5%;
+  // left: 10%;
+  // right: 10%;
+  width: 100%;
   background-color: $background;
   border-radius: 12px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
-  margin: 2em 1em;
+  margin: 2em 0;
 }
