@@ -1,0 +1,24 @@
+.show, .hide {
+  position: absolute;
+  top: 10%;
+  left: 1000px;
+  height: 100%;
+  text-align: center;
+  padding: 1em 0.2em;
+}
+.show .deleteFormContainer, .hide .deleteFormContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.show .yesButton, .hide .yesButton {
+  margin: 2em 0 1em 0;
+}
+
+.show {
+  left: 0;
+  z-index: 40;
+  height: 80%;
+}/*# sourceMappingURL=DeleteBookForm.css.map */

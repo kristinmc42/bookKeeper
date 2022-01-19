@@ -1,0 +1,30 @@
+@import "../../colors";
+
+
+.show , .hide{
+  position: absolute;
+  top: 10%;
+  left: 1000px;
+  height: 100%;
+  text-align: center;
+  padding: 1em .2em;
+
+  .deleteFormContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .yesButton {
+    margin: 2em 0 1em 0;
+  }
+}
+
+.show {
+  left: 0;
+  z-index: 40;
+  height: 80%;
+}
+
+

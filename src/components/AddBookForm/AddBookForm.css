@@ -1,8 +1,19 @@
+.addBookForm {
+  position: -webkit-sticky;
+  position: sticky;
+  height: 80%;
+}
+
+.stickyButton {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
 form {
   display: flex;
   flex-direction: column;
-  background-color: #919191;
-  padding: 1em;
+  padding: 3em 1em;
 }
 form input, form select {
   background-color: #919191;
@@ -15,4 +26,11 @@ form input, form select {
 }
 form label {
   font-size: clamp(1rem, 2vw, 3rem);
+  margin: 2em 0 0.6em 0;
+}
+form .addBookButton {
+  margin: 3em auto 2em auto;
+}
+form .cancelButton {
+  margin-bottom: 2em;
 }/*# sourceMappingURL=AddBookForm.css.map */

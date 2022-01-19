@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import DeleteTitle from "../DeleteTitle/DeleteTitle";
 import "./DisplayBooks.scss";
 
 function DisplayBooks({ allBooks }){
@@ -29,7 +30,8 @@ function DisplayBooks({ allBooks }){
         setBooksCurrentlyReading(newCurrentlyReadingArray);
       }
     })
-  }, [allBooks])
+  }, [allBooks]);
+
 
   return(
     <>
@@ -44,6 +46,7 @@ function DisplayBooks({ allBooks }){
                 return(
                   <li key={readBook.bookID}>
                     <p>{readBook.bookInfo.title}</p>
+                    <DeleteTitle id={readBook.bookID}/>
                   </li>
                 )
               })
@@ -60,6 +63,7 @@ function DisplayBooks({ allBooks }){
                 return(
                   <li key={currentBook.bookID}>
                     <p>{currentBook.bookInfo.title}</p>
+                    <DeleteTitle id={currentBook.bookID}/>
                   </li>
                 )
               })
@@ -76,6 +80,7 @@ function DisplayBooks({ allBooks }){
                 return(
                   <li key={toReadBook.bookID}>
                     <p>{toReadBook.bookInfo.title}</p>
+                    <DeleteTitle id={toReadBook.bookID}/>
                   </li>
                 )
               })

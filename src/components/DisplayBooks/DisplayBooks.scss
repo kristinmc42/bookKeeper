@@ -19,6 +19,19 @@ ul {
   grid-auto-rows: repeat(1fr);
   gap: 2em;
   text-align: right;
-  padding-right: 1em;
+  padding: 0 1em 0 0;
+  margin-bottom: 0;
+
+  ul, ul li {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .bookshelfRead, .bookshelfCurrentlyReading,
+  .bookshelfToRead {
+    flex-direction: column;
+    align-items: flex-end;
+  }
   
 }
