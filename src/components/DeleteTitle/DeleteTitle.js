@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import DeleteBookForm from "../DeleteBookForm/DeleteBookForm";
+import Button from "../Button/Button";
 import "./DeleteTitle.scss";
 
 function DeleteTitle(id) {
@@ -9,7 +10,8 @@ function DeleteTitle(id) {
   
   return(
     <>
-    <button className="cross" onFocus={(e) => {setVisible(true)}} >x</button>
+    <Button className="cross" text="Del" onFocus={(e) => {setVisible(true)}} />
+
     <DeleteBookForm id={id}  classTitle={visible ? "show" : "hide"} setVisible={setVisible}/>
     </>
   )

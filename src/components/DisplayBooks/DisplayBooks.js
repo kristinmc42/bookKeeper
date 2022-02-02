@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import DeleteTitle from "../DeleteTitle/DeleteTitle";
+// import MoveBookForm from "../MoveBookForm";
 import "./DisplayBooks.scss";
 
 function DisplayBooks({ allBooks }){
@@ -47,6 +48,7 @@ function DisplayBooks({ allBooks }){
                   <li key={readBook.bookID}>
                     <p>{readBook.bookInfo.title}</p>
                     <DeleteTitle id={readBook.bookID}/>
+                    {/* <MoveBookForm id={readBook.bookID}/> */}
                   </li>
                 )
               })
