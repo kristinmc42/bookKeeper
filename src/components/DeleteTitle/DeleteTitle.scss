@@ -1,15 +1,7 @@
 @import "../../colors";
 
 .cross {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: $text;
-  background-color: $backgroundOpaque;
-  width: 20px;
-  height: 20px;
-  border: 1px solid $text;
-  border-radius: 50%;
-  padding-bottom: 1px;
-  margin-left: 10px;
+  font-size: clamp(.5rem, 3vw, 3rem);
+  max-width: 34px;
+ 
 }
