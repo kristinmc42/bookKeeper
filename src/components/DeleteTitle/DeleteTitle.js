@@ -10,7 +10,7 @@ function DeleteTitle(id) {
   
   return(
     <>
-    <Button className="cross" text="Del" onFocus={(e) => {setVisible(true)}} />
+    <Button className="delete" text="Del" onFocus={(e) => {setVisible(true)}} />
 
     <DeleteBookForm id={id}  classTitle={visible ? "show" : "hide"} setVisible={setVisible}/>
     </>

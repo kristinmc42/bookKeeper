@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import DeleteTitle from "../DeleteTitle/DeleteTitle";
-// import MoveBookForm from "../MoveBookForm";
+import MoveTitle from "../MoveTitle/MoveTitle";
 import "./DisplayBooks.scss";
 
 function DisplayBooks({ allBooks }){
@@ -15,9 +15,15 @@ function DisplayBooks({ allBooks }){
     const newReadArray = [];
     const newCurrentlyReadingArray = [];
 
+    // clear state
+    setReadBooks([]);
+    setBooksToRead([]);
+    setBooksCurrentlyReading([]);
+
+    console.log(readBooks, booksToRead, booksCurrentlyReading)
     // go through array of books whenever there is a change in props and sort each book by category
     allBooks.forEach((book) => {
-      console.log(book, book.bookInfo.category)
+      console.log("Displaying books")
       if (book.bookInfo.category === "read"){
         newReadArray.push(book);
         setReadBooks(newReadArray);
@@ -47,8 +53,10 @@ function DisplayBooks({ allBooks }){
                 return(
                   <li key={readBook.bookID}>
                     <p>{readBook.bookInfo.title}</p>
-                    <DeleteTitle id={readBook.bookID}/>
-                    {/* <MoveBookForm id={readBook.bookID}/> */}
+                    <div className="bookButtons">
+                      <DeleteTitle id={readBook.bookID}/>
+                      <MoveTitle id={readBook.bookID} title={readBook.bookInfo.title}/>
+                    </div>
                   </li>
                 )
               })
@@ -65,7 +73,10 @@ function DisplayBooks({ allBooks }){
                 return(
                   <li key={currentBook.bookID}>
                     <p>{currentBook.bookInfo.title}</p>
-                    <DeleteTitle id={currentBook.bookID}/>
+                    <div className="bookButtons">
+                      <DeleteTitle id={currentBook.bookID}/>
+                      <MoveTitle id={currentBook.bookID} title={currentBook.bookInfo.title}/>
+                    </div>
                   </li>
                 )
               })
@@ -82,7 +93,10 @@ function DisplayBooks({ allBooks }){
                 return(
                   <li key={toReadBook.bookID}>
                     <p>{toReadBook.bookInfo.title}</p>
-                    <DeleteTitle id={toReadBook.bookID}/>
+                    <div className="bookButtons">
+                      <DeleteTitle id={toReadBook.bookID}/>
+                      <MoveTitle id={toReadBook.bookID} title={toReadBook.bookInfo.title}/>
+                    </div>
                   </li>
                 )
               })

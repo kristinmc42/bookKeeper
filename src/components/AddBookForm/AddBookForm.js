@@ -81,8 +81,8 @@ function AddBookForm () {
           <select name="readStatus" id="readStatus" onChange={handleOptionChange}>
             <option value="">- Select one -</option>
             <option value="read">Read</option>
-            <option value="toRead">To Read</option>
             <option value="currentlyReading">Currently Reading</option>
+            <option value="toRead">To Read</option>
           </select>
 
           <Button text="Add book" className="addBookButton" />

@@ -17,7 +17,6 @@ function Home() {
       dbRef.on("value", (response) => {
         // store new state in a variable
         const newState = [];
-
     
         // store response in a varaiable
         const data = response.val();
