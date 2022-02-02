@@ -20,7 +20,7 @@ function DisplayBooks({ allBooks }){
     setBooksToRead([]);
     setBooksCurrentlyReading([]);
 
-    console.log(readBooks, booksToRead, booksCurrentlyReading)
+   
     // go through array of books whenever there is a change in props and sort each book by category
     allBooks.forEach((book) => {
       console.log("Displaying books")
