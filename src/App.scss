@@ -12,6 +12,7 @@ main {
   // background-repeat: no-repeat;
   background-color: $background;
   margin: 0;
+  height: 86%;
 }
 
 header {
@@ -21,7 +22,7 @@ header {
     margin: 0;
     padding: .5em;
     text-align: center;
-    color: $secondaryColor;
+    color: $header;
   }
 }
 

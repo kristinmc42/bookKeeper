@@ -17,7 +17,6 @@ ul {
   grid-auto-rows: repeat(1fr);
   gap: 2em;
   text-align: right;
-  padding: 0 1em 0 0;
   margin-bottom: 0;
 }
 .bookshelf ul, .bookshelf ul li {
@@ -29,4 +28,22 @@ ul {
 .bookshelf .bookshelfToRead {
   flex-direction: column;
   align-items: flex-end;
+}
+.bookshelf .bookshelfRead li, .bookshelf .bookshelfCurrentlyReading li,
+.bookshelf .bookshelfToRead li {
+  background-color: rgba(246, 246, 184, 0.2);
+  margin: 5px 0;
+  padding-left: 15px;
+  padding-right: 10px;
+  border-radius: 10px;
+  max-width: 75%;
+}
+.bookshelf .bookshelfRead p, .bookshelf .bookshelfCurrentlyReading p,
+.bookshelf .bookshelfToRead p {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+}
+.bookshelf .bookButtons {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
 }/*# sourceMappingURL=DisplayBooks.css.map */

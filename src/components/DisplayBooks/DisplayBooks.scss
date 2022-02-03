@@ -19,7 +19,6 @@ ul {
   grid-auto-rows: repeat(1fr);
   gap: 2em;
   text-align: right;
-  padding: 0 1em 0 0;
   margin-bottom: 0;
 
   ul, ul li {
@@ -32,6 +31,18 @@ ul {
   .bookshelfToRead {
     flex-direction: column;
     align-items: flex-end;
+    li {
+      background-color: $secondaryColorOpaque;
+      margin: 5px 0;
+      padding-left: 15px;
+      padding-right: 10px;
+      border-radius: 10px;
+      max-width: 75%;
+    }
+
+    p{
+      font-size: clamp(1rem, 2vw, 1.4rem);
+    }
   }
 
   .bookButtons {

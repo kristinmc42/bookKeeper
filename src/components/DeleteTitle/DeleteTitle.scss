@@ -1,7 +1,14 @@
 @import "../../colors";
 
 .delete {
-  font-size: clamp(.4rem, 2.7vw, 3rem);
+  font-size: clamp(.5rem, 2vw, .8rem);
   min-width: 45px;
  
+}
+
+// media queries
+@media (min-width: 480px){
+  .delete {
+    min-width: 5em;
+  }
 }

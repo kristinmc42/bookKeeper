@@ -1,6 +1,5 @@
 .addBookForm {
-  position: -webkit-sticky;
-  position: sticky;
+  top: 8%;
   height: 80%;
 }
 
@@ -8,6 +7,7 @@
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  font-size: clamp(1rem, 2.5vw, 2rem);
 }
 
 form {
