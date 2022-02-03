@@ -3,7 +3,7 @@
 
 .show , .hide{
   position: absolute;
-  top: 10%;
+  top: 9%;
   left: 1000px;
   height: 100%;
   text-align: center;
@@ -14,10 +14,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 95%;
     height: 100%;
+    p {
+      font-size: clamp(1rem, 2.5vw, 2rem);
+      margin-bottom: 60px;
+    }
   }
   .yesButton {
     margin: 2em 0 1em 0;
+  }
+  .yesButton, .noButton {
+    font-size: clamp(1rem, 2.2vw, 1.6rem);
+    max-width: 300px;
   }
 }
 
