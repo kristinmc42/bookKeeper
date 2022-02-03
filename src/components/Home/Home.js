@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import firebase from "../../firebase";
 import DisplayBooks from "../DisplayBooks/DisplayBooks.js";
 import AddBookForm from "../AddBookForm/AddBookForm";
+import "./Home.scss";
 
 
 function Home() {
@@ -34,10 +35,10 @@ function Home() {
     }, []);
 
   return(
-    <>
+    <div className="wrapper">
       <AddBookForm />
       <DisplayBooks allBooks={ books }/>
-    </>
+    </div>
   )
 }
 
