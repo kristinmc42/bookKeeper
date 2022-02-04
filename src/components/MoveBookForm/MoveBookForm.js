@@ -66,12 +66,6 @@ function MoveBookForm({ id, title, classTitle, setVisible }) {
           <div className="moveFormContainer">
             <form action="submit" onSubmit={handleFormSubmit}>
               <label htmlFor="moveBookCategory">Where would you like to move this book to?</label>
-              {/* <select name="moveBook" id="moveBookCategory" onChange={handleOptionChange}>
-                <option value="">- Select one -</option>
-                <option value="read">Read</option>
-                <option value="currentlyReading">Currently Reading</option>
-                <option value="toRead">To Read</option>
-              </select> */}
               <Select name="moveBook" id="moveBookCategory" onChange={handleOptionChange} />
               <Button text="Move Book"/>
               <Button text="Cancel" onClick={handleCloseWindow}/>
