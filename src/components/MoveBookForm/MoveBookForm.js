@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import firebase from "../../firebase.js";
 import Button from "../Button/Button";
 import Card from "../Card/Card.js";
+import Select from "../Select/Select.js";
 import "./MoveBookForm.scss";
 
 
@@ -65,12 +66,13 @@ function MoveBookForm({ id, title, classTitle, setVisible }) {
           <div className="moveFormContainer">
             <form action="submit" onSubmit={handleFormSubmit}>
               <label htmlFor="moveBookCategory">Where would you like to move this book to?</label>
-              <select name="moveBook" id="moveBookCategory" onChange={handleOptionChange}>
+              {/* <select name="moveBook" id="moveBookCategory" onChange={handleOptionChange}>
                 <option value="">- Select one -</option>
                 <option value="read">Read</option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="toRead">To Read</option>
-              </select>
+              </select> */}
+              <Select name="moveBook" id="moveBookCategory" onChange={handleOptionChange} />
               <Button text="Move Book"/>
               <Button text="Cancel" onClick={handleCloseWindow}/>
             </form>

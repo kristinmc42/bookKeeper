@@ -3,6 +3,7 @@ import "./AddBookForm.scss";
 import Button from "../Button/Button.js";
 import { useState } from "react";
 import Card from "../Card/Card.js";
+import Select from "../Select/Select.js";
 
 
 
@@ -78,13 +79,13 @@ function AddBookForm () {
             />
 
           <label htmlFor="readStatus">Choose a bookshelf</label>
-          <select name="readStatus" id="readStatus" onChange={handleOptionChange}>
+          {/* <select name="readStatus" id="readStatus" onChange={handleOptionChange}>
             <option value="">- Select one -</option>
             <option value="read">Read</option>
             <option value="currentlyReading">Currently Reading</option>
             <option value="toRead">To Read</option>
-          </select>
-
+          </select> */}
+          <Select name="readStatus" id="readStatus" onChange={handleOptionChange} />
           <Button text="Add book" className="addBookButton" />
 
           <Button text="cancel" onClick={() => setShowForm(false)} className="cancelButton"/>
