@@ -1,10 +1,10 @@
+
 import firebase from "../../firebase.js";
 import "./AddBookForm.scss";
 import Button from "../Button/Button.js";
 import { useState } from "react";
 import Card from "../Card/Card.js";
 import Select from "../Select/Select.js";
-import SearchBookTitle from "../SearchBookTitle/SearchBookTitle.js";
 import axios from "axios";
 import DisplayTitleOptions from "../DisplayTitleOptions/DisplayTitleOptions";
 
@@ -155,7 +155,7 @@ function AddBookForm () {
           <Button text="Find book" className="findBookButton" />
         </form>
         <Button text="cancel" className="cancelFindBook" onClick={handleCloseForm}/>
-        {/* <SearchBookTitle onChange={handleInputChange} value={userInput} /> */}
+  
 
         <ul className="titleOptions">
           {/* if there are search options, map through the options and display the info from the API call */}
