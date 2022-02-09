@@ -12,7 +12,6 @@ function DeleteBookForm({ id, classTitle, setVisible }) {
 
   // change state based on classTitle (hide or show)
   useEffect(() => {
-    console.log(classTitle)
     if (classTitle === "show"){
       setShowForm(true)
     }else {

@@ -44,27 +44,34 @@ function AddBookForm () {
     // clear book to add
     setBookToAdd({});
 
-    // call API to search title
-    axios({
-      url: "https://www.googleapis.com/books/v1/volumes",
-      method: "GET",
-      responseType: "json",
-      params: {
-        key: process.env.REACT_APP_GOOGLE_API_KEY,
-        q: userInput
-      }
-    })
-    .then(response => {
-      // save array of items in variable
-      const options = [...response.data.items];
-     
-      setSearchOptions(options);
-      // clear input field
-      setUserInput("");
-    })
-    .catch(error => {
-      console.log(error)
-    })
+    if (userInput){
+
+      // call API to search title
+      axios({
+        url: "https://www.googleapis.com/books/v1/volumes",
+        method: "GET",
+        responseType: "json",
+        params: {
+          key: process.env.REACT_APP_GOOGLE_API_KEY,
+          q: userInput
+        }
+      })
+      .then(response => {
+        // save array of items in variable
+        const options = [...response.data.items];
+        
+        setSearchOptions(options);
+        // clear input field
+        setUserInput("");
+      })
+      .catch(error => {
+        console.log(error)
+        setUserInput("");
+        return (
+          <p className="errorMessage">Sorry. There was an error. Please try again.</p>
+        )
+      })
+    }
   }
 
   // when user selects a title from the options to add to a bookshelf
@@ -83,23 +90,32 @@ function AddBookForm () {
   }
 
 
-  // form submit to select bookshelf
+  // form submit to select bookshelf category based on user's selection (after a title has been selected)
   const handleBookshelfFormSubmit = (event) => {
     event.preventDefault();
     
     const dbRef = firebase.database().ref();
 
-    // store user input in database
-    if (userInput && optionChoice){
+    // store user input in database if user has selected an option
+    if (optionChoice && bookToAdd){
       const bookID = dbRef.push().getKey();
-      const bookInfo = { title: userInput, category: optionChoice };
-      console.log(bookInfo);
+      const addedBook = bookToAdd[0];
+    
+      const bookInfo = {
+        id: addedBook.id,
+        title: addedBook.volumeInfo.title,
+        authors: addedBook.volumeInfo.authors ? addedBook.volumeInfo.authors : null,
+        image: addedBook.volumeInfo.imageLinks ? addedBook.volumeInfo.imageLinks.thumbnail :"No image",
+        alt: addedBook.volumeInfo.title,
+        category: optionChoice 
+      };
   
       // store book info in database
       dbRef.child(bookID).set(bookInfo).then(() => {
         // clear values of state
         setUserInput("");
         setOptionChoice("");
+        setBookToAdd({})
         setShowForm(false);
       })
       .catch((error) => {
@@ -107,10 +123,22 @@ function AddBookForm () {
       });
     }
   }
+
+  // when user clicks cancel to close the add book form
+  const handleCloseForm = () => {
+    // set state to hide form 
+    setShowForm(false);
+    // clear state for user input and option choice
+    setUserInput("");
+    setOptionChoice("");
+    // clear previous search options 
+    setSearchOptions([]);
+  }
   
 
   return(
     <>
+    {/* shows either the Add book button or the form to add book to collection */}
     {
       showForm
       ?
@@ -126,21 +154,24 @@ function AddBookForm () {
             />
           <Button text="Find book" className="findBookButton" />
         </form>
+        <Button text="cancel" className="cancelFindBook" onClick={handleCloseForm}/>
         {/* <SearchBookTitle onChange={handleInputChange} value={userInput} /> */}
 
         <ul className="titleOptions">
+          {/* if there are search options, map through the options and display the info from the API call */}
         {
           searchOptions
           ?
           searchOptions.map(optionItem => {
+           
             return(
         
               <li  key={optionItem.id}>
                 <DisplayTitleOptions 
                   id={optionItem.id}
                   title={optionItem.volumeInfo.title}
-                  authors={optionItem.volumeInfo.authors}
-                  image={optionItem.volumeInfo.imageLinks.thumbnail}
+                  authors={optionItem.volumeInfo.authors ? optionItem.volumeInfo.authors : null}
+                  image={optionItem.volumeInfo.imageLinks ? optionItem.volumeInfo.imageLinks.thumbnail :"No image"}
                   alt={optionItem.volumeInfo.title}
                 />
                 <Button className="selectedTitle"  text="Choose Book" value={optionItem.id} onClick={handleBookSelected}/>
@@ -152,6 +183,7 @@ function AddBookForm () {
           }
         </ul>
 
+        {/* if the user has selected a title from the options the form to select a category will be shown */}
         {
           showBookshelfSelection
           ? 

@@ -30,7 +30,6 @@ function Home() {
           });
         }
         setBooks(newState);
-        console.log(newState)
       });
     }, []);
 

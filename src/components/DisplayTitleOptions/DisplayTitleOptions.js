@@ -4,7 +4,10 @@ function DisplayTitleOptions({ id, title, authors, image, alt }) {
   return(
 
     <div className="bookInfo">
-      <img src={image} alt={alt} />
+      { image 
+      ? <img src={image} alt={alt} />
+      : null
+      }
       <p>{title}</p>
       {
         authors
