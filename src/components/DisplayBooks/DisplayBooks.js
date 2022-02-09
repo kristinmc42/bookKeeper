@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import DeleteTitle from "../DeleteTitle/DeleteTitle";
 import MoveTitle from "../MoveTitle/MoveTitle";
+import MoreInfo from "../MoreInfo/MoreInfo";
 import "./DisplayBooks.scss";
 
 function DisplayBooks({ allBooks }){
@@ -23,7 +24,7 @@ function DisplayBooks({ allBooks }){
    
     // go through array of books whenever there is a change in props and sort each book by category
     allBooks.forEach((book) => {
-
+      console.log(book)
       if (book.bookInfo.category === "read"){
         newReadArray.push(book);
         setReadBooks(newReadArray);
@@ -52,10 +53,12 @@ function DisplayBooks({ allBooks }){
               ? readBooks.map((readBook) => {
                 return(
                   <li key={readBook.bookID}>
-                    <p>{readBook.bookInfo.title}</p>
+                    <img src={readBook.bookInfo.image} alt={readBook.bookInfo.title} />
+                    {/* <p>{readBook.bookInfo.title}</p> */}
                     <div className="bookButtons">
-                      <DeleteTitle id={readBook.bookID}/>
+                      <MoreInfo book={readBook}/>
                       <MoveTitle id={readBook.bookID} title={readBook.bookInfo.title}/>
+                      <DeleteTitle id={readBook.bookID}/>
                     </div>
                   </li>
                 )
@@ -72,10 +75,12 @@ function DisplayBooks({ allBooks }){
               ? booksCurrentlyReading.map((currentBook) => {
                 return(
                   <li key={currentBook.bookID}>
-                    <p>{currentBook.bookInfo.title}</p>
+                    <img src={currentBook.bookInfo.image} alt={currentBook.bookInfo.title} />
+                    {/* <p>{currentBook.bookInfo.title}</p> */}
                     <div className="bookButtons">
-                      <DeleteTitle id={currentBook.bookID}/>
+                      <MoreInfo book={currentBook} />
                       <MoveTitle id={currentBook.bookID} title={currentBook.bookInfo.title}/>
+                      <DeleteTitle id={currentBook.bookID}/>
                     </div>
                   </li>
                 )
@@ -92,8 +97,10 @@ function DisplayBooks({ allBooks }){
               ? booksToRead.map((toReadBook) => {
                 return(
                   <li key={toReadBook.bookID}>
-                    <p>{toReadBook.bookInfo.title}</p>
+                    <img src={toReadBook.bookInfo.image} alt={toReadBook.bookInfo.title} />
+                    {/* <p>{toReadBook.bookInfo.title}</p> */}
                     <div className="bookButtons">
+                      <MoreInfo book={toReadBook} />
                       <DeleteTitle id={toReadBook.bookID}/>
                       <MoveTitle id={toReadBook.bookID} title={toReadBook.bookInfo.title}/>
                     </div>

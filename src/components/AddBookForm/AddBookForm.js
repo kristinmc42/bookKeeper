@@ -100,13 +100,16 @@ function AddBookForm () {
     if (optionChoice && bookToAdd){
       const bookID = dbRef.push().getKey();
       const addedBook = bookToAdd[0];
-    
+      console.log(addedBook)
       const bookInfo = {
         id: addedBook.id,
         title: addedBook.volumeInfo.title,
         authors: addedBook.volumeInfo.authors ? addedBook.volumeInfo.authors : null,
         image: addedBook.volumeInfo.imageLinks ? addedBook.volumeInfo.imageLinks.thumbnail :"No image",
         alt: addedBook.volumeInfo.title,
+        genres: addedBook.volumeInfo.categories,
+        pageCount: addedBook.volumeInfo.pageCount,
+        description: addedBook.volumeInfo.description,
         category: optionChoice 
       };
   
