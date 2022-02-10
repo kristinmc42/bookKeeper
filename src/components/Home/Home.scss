@@ -1,4 +1,29 @@
+
+@import "../../colors";
+
 .wrapper {
   max-width: 1600px;
   width: 95%;
+  .link {
+    position: sticky;
+    top: 0;
+    z-index: 70;
+    text-decoration: none;
+    width: 50%;
+    // margin: 5px auto;
+    padding: 5px 10px;
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    text-transform: uppercase;
+    border: 2px solid $secondaryColor;
+    border-radius: 5px;
+    background-color: $primaryColor;
+    color: $secondaryColor;
+    transition: all .7s;
+  }
+  .link:hover,
+  .link:focus-within {
+    border: 2px solid $primaryColor;
+    background-color: $secondaryColor;
+    color: $text;
+  }
 }

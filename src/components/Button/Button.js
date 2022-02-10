@@ -1,3 +1,6 @@
+// reusable button component to keep consistant styling
+// takes various props
+
 import React from "react";
 import "./Button.scss";
 

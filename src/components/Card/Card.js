@@ -1,3 +1,5 @@
+// resusable card  component for consistant appearance 
+
 import React from "react";
 import "./Card.scss";
 

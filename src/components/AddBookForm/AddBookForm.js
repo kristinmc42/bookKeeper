@@ -1,3 +1,15 @@
+// this component takes user input to add a book to their collection
+// the input is stored in state
+// sends the input to the Google Books API which returns 10 titles with that keyword in the title
+// the options are stored in state
+// when there are options, a list of the options is displayed
+// the title, author and image of the 10 options are displayed for the user with another component DisplayTitleOptions as well as a button to select the title
+// when the user selects one of the options another form is shown through conditional rendering
+// this form let's the user select the bookshelf from a dropdown where they would like to store the selected title
+// the selected option is stored in state
+// when the form is submitted, the book info is stored in the firebase realtime database
+// in the handle submit, the navigation is changed to Home and the user is returned to their book list
+
 
 import firebase from "../../firebase.js";
 import "./AddBookForm.scss";
@@ -134,17 +146,7 @@ function AddBookForm () {
     }
   }
 
-  // when user clicks cancel to close the add book form
-  // const handleCloseForm = () => {
-  //   // set state to hide form 
-  //   setShowForm(false);
-  //   // clear state for user input and option choice
-  //   setUserInput("");
-  //   setOptionChoice("");
-  //   // clear previous search options 
-  //   setSearchOptions([]);
-  // }
-  
+
 
   return(
     <>
@@ -157,7 +159,7 @@ function AddBookForm () {
             <Select name="readStatus" id="readStatus" onChange={handleOptionChange} />
             <Button text="Add to bookshelf" className="addBookButton" />
 
-            <Link to="/">Cancel</Link>
+            <Link className="cancel" to="/">Cancel</Link>
            </form>
         </Card>
 
@@ -173,8 +175,7 @@ function AddBookForm () {
             />
           <Button text="Find book" className="findBookButton" />
         </form>
-        <Link to="/">Cancel</Link>
-        {/* <Button text="cancel" className="cancelFindBook" onClick={handleCloseForm}/> */}
+        <Link className="cancel" to="/">Cancel</Link>
   
 
         <ul className="titleOptions">
@@ -202,24 +203,6 @@ function AddBookForm () {
             :null
           }
         </ul>
-
-        {/* if the user has selected a title from the options the form to select a category will be shown */}
-        {
-          // showBookshelfSelection
-          // ? 
-          // <Link to="/addBook/chooseBookshelf" state={ bookToAdd }>Choose a bookshelf</Link>
-          // // <form action="submit" onSubmit={handleBookshelfFormSubmit}>
-
-          // //   <label htmlFor="readStatus">Choose a bookshelf</label>
-          // //   <Select name="readStatus" id="readStatus" onChange={handleOptionChange} />
-          // //   <Button text="Add to bookshelf" className="addBookButton" />
-
-          // //   {/* <Button text="cancel" onClick={() => setShowForm(false)} className="cancelButton"/> */}
-          // //   <Link to="/">Cancel</Link>
-          // // </form>
-          // :null
-        }
-
       </Card>
       }
 

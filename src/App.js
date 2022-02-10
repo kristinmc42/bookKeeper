@@ -19,12 +19,7 @@ function App() {
         </header>
 
         <main>
-          <Home />   
-        </main>
-
-        <footer>
-          <p>Designed by Kristin McCollum</p>
-        </footer>
+          {/* <Home />    */}
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/addBook" element={<AddBookForm />} />
@@ -33,6 +28,11 @@ function App() {
           <Route exact path="/moveBook" element={<MoveTitle />} />
           <Route>{"404"}</Route>
         </Routes>
+        </main>
+
+        <footer>
+          <p>Designed by Kristin McCollum</p>
+        </footer>
       </div>
     </Router>
     </>
