@@ -3,6 +3,7 @@ import firebase from "../../firebase.js";
 import "./AddBookForm.scss";
 import Button from "../Button/Button.js";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Card from "../Card/Card.js";
 import Select from "../Select/Select.js";
 import axios from "axios";
@@ -13,7 +14,7 @@ import DisplayTitleOptions from "../DisplayTitleOptions/DisplayTitleOptions";
 
 function AddBookForm () {
   // set state for showing form
-  const [ showForm , setShowForm ] = useState(false);
+  const [ showForm , setShowForm ] = useState(true);
   // set state for user input
   const [ userInput, setUserInput ] = useState("");
   const [ optionChoice, setOptionChoice ] = useState("");
@@ -23,6 +24,9 @@ function AddBookForm () {
   const [ bookToAdd, setBookToAdd ] = useState({});
   // state to show form for selecting bookshelf
   const [ showBookshelfSelection, setShowBookshelfSelection ] = useState(false);
+
+  // init history
+  let navigate = useNavigate();
 
   // track user input
   const handleInputChange = (event) => {
@@ -78,7 +82,7 @@ function AddBookForm () {
   const handleBookSelected = (event) => {
     // find the option info that matches the selected id
     const chosenTitle = searchOptions.filter(option => option.id === event.target.value);
-    
+    console.log("book was selected. bookshelf option should be shown")
     // save the selected book to state
     setBookToAdd(chosenTitle);
 
@@ -105,11 +109,11 @@ function AddBookForm () {
         id: addedBook.id,
         title: addedBook.volumeInfo.title,
         authors: addedBook.volumeInfo.authors ? addedBook.volumeInfo.authors : null,
-        image: addedBook.volumeInfo.imageLinks ? addedBook.volumeInfo.imageLinks.thumbnail :"No image",
+        image: addedBook.volumeInfo.imageLinks ? addedBook.volumeInfo.imageLinks.thumbnail :null,
         alt: addedBook.volumeInfo.title,
-        genres: addedBook.volumeInfo.categories,
-        pageCount: addedBook.volumeInfo.pageCount,
-        description: addedBook.volumeInfo.description,
+        genres: addedBook.volumeInfo.categories ? addedBook.volumeInfo.categories :null,
+        pageCount: addedBook.volumeInfo.pageCount ?addedBook.volumeInfo.pageCount :null,
+        description: addedBook.volumeInfo.description ? addedBook.volumeInfo.description :null,
         category: optionChoice 
       };
   
@@ -120,6 +124,9 @@ function AddBookForm () {
         setOptionChoice("");
         setBookToAdd({})
         setShowForm(false);
+
+        // route back to Home
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -128,24 +135,33 @@ function AddBookForm () {
   }
 
   // when user clicks cancel to close the add book form
-  const handleCloseForm = () => {
-    // set state to hide form 
-    setShowForm(false);
-    // clear state for user input and option choice
-    setUserInput("");
-    setOptionChoice("");
-    // clear previous search options 
-    setSearchOptions([]);
-  }
+  // const handleCloseForm = () => {
+  //   // set state to hide form 
+  //   setShowForm(false);
+  //   // clear state for user input and option choice
+  //   setUserInput("");
+  //   setOptionChoice("");
+  //   // clear previous search options 
+  //   setSearchOptions([]);
+  // }
   
 
   return(
     <>
-    {/* shows either the Add book button or the form to add book to collection */}
-    {
-      showForm
-      ?
-      <Card className="addBookForm">
+      {
+        showBookshelfSelection
+        ? <Card className="chooseBookshelf">
+          <form action="submit" onSubmit={handleBookshelfFormSubmit}>
+
+            <label htmlFor="readStatus">Choose a bookshelf</label>
+            <Select name="readStatus" id="readStatus" onChange={handleOptionChange} />
+            <Button text="Add to bookshelf" className="addBookButton" />
+
+            <Link to="/">Cancel</Link>
+           </form>
+        </Card>
+
+      :<Card className="addBookForm">
         <form action="submit" onSubmit={handleSearchFormSubmit}>
           <label htmlFor="bookTitle">Add a book to your collection</label>
           <input 
@@ -157,7 +173,8 @@ function AddBookForm () {
             />
           <Button text="Find book" className="findBookButton" />
         </form>
-        <Button text="cancel" className="cancelFindBook" onClick={handleCloseForm}/>
+        <Link to="/">Cancel</Link>
+        {/* <Button text="cancel" className="cancelFindBook" onClick={handleCloseForm}/> */}
   
 
         <ul className="titleOptions">
@@ -188,23 +205,24 @@ function AddBookForm () {
 
         {/* if the user has selected a title from the options the form to select a category will be shown */}
         {
-          showBookshelfSelection
-          ? 
-          <form action="submit" onSubmit={handleBookshelfFormSubmit}>
+          // showBookshelfSelection
+          // ? 
+          // <Link to="/addBook/chooseBookshelf" state={ bookToAdd }>Choose a bookshelf</Link>
+          // // <form action="submit" onSubmit={handleBookshelfFormSubmit}>
 
-            <label htmlFor="readStatus">Choose a bookshelf</label>
-            <Select name="readStatus" id="readStatus" onChange={handleOptionChange} />
-            <Button text="Add to bookshelf" className="addBookButton" />
+          // //   <label htmlFor="readStatus">Choose a bookshelf</label>
+          // //   <Select name="readStatus" id="readStatus" onChange={handleOptionChange} />
+          // //   <Button text="Add to bookshelf" className="addBookButton" />
 
-            <Button text="cancel" onClick={() => setShowForm(false)} className="cancelButton"/>
-          </form>
-          :null
+          // //   {/* <Button text="cancel" onClick={() => setShowForm(false)} className="cancelButton"/> */}
+          // //   <Link to="/">Cancel</Link>
+          // // </form>
+          // :null
         }
 
       </Card>
+      }
 
-      :  <Button text="Add a book" onClick={() => setShowForm(true)} className="stickyButton"/>
-    }
     </>
   )
 }

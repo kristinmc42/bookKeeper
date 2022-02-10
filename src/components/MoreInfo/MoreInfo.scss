@@ -1,8 +1,25 @@
 .moreInfo{
+  position: absolute;
+  z-index: 30;
   left: 0;
-  top: 9%;
+  top: 20%;
+  bottom: 20%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  padding: 40px 15px;
+  width: 96%;
+  img {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+  }
+  h3, h4 {
+    padding: 5px;
+    margin: 0;
+  }
 }
 
 

@@ -1,12 +1,15 @@
 .addBookForm {
   top: 8%;
   height: 80%;
+  display: flex;
+  flex-direction: column;
 }
 
 .stickyButton {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  z-index: 70;
   font-size: clamp(1rem, 2.5vw, 2rem);
 }
 
