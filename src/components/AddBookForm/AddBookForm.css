@@ -1,13 +1,35 @@
 .addBookForm {
   top: 8%;
   height: 80%;
+  display: flex;
+  flex-direction: column;
 }
 
-.stickyButton {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  font-size: clamp(1rem, 2.5vw, 2rem);
+.cancel {
+  width: 50%;
+  max-width: 130px;
+  margin: 3px auto;
+  padding: 1px 4px;
+  font-size: clamp(1rem, 3vw, 3rem);
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  border: 2px solid #f6f6b8;
+  border-radius: 5px;
+  background-color: #07061c;
+  color: #f6f6b8;
+  transition: all 0.7s;
+}
+
+.cancel:hover,
+.cancel:focus-within {
+  border: 2px solid #07061c;
+  background-color: #f6f6b8;
+  color: black;
+}
+
+.findBookButton {
+  min-width: 130px;
 }
 
 form {
@@ -30,7 +52,4 @@ form label {
 }
 form .addBookButton {
   margin: 3em auto 2em auto;
-}
-form .cancelButton {
-  margin-bottom: 2em;
 }/*# sourceMappingURL=AddBookForm.css.map */

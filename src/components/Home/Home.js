@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import firebase from "../../firebase";
 import DisplayBooks from "../DisplayBooks/DisplayBooks.js";
 import AddBookForm from "../AddBookForm/AddBookForm";
@@ -36,7 +37,8 @@ function Home() {
 
   return(
     <div className="wrapper">
-      <AddBookForm />
+      {/* <AddBookForm /> */}
+      <Link className="link" to="/addBook">Add a book</Link>
       <DisplayBooks allBooks={ books }/>
     </div>
   )

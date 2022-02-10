@@ -1,0 +1,31 @@
+.moreInfo {
+  position: absolute;
+  z-index: 30;
+  left: 0;
+  top: 20%;
+  bottom: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  padding: 40px 15px;
+  width: 96%;
+}
+.moreInfo img {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+}
+.moreInfo h3, .moreInfo h4 {
+  padding: 5px;
+  margin: 0;
+}
+
+.moreInfoButton {
+  font-size: clamp(.5rem, 2vw, .8rem);
+  min-width: 45px;
+  width: 100%;
+  padding-left: 8px;
+  padding-right: 8px;
+}/*# sourceMappingURL=MoreInfo.css.map */
