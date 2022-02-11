@@ -1,28 +1,37 @@
 @import "../../colors";
 
 
-.addBookForm {
-  top: 8%;
-  height: 80%;
+.addBookForm.card {
+  top: 12%;
+  height: 60%;
   display: flex;
   flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
+// button/link styling
 
+.findBookButton,
+.cancel {
+  min-width: 140px;
+  max-width: 300px;
+  width: 55%;
+ 
 }
 
 .cancel {
   width: 50%;
-  max-width: 130px;
-  margin: 3px auto;
-  padding: 1px 4px;
-  font-size: clamp(1rem, 3vw, 3rem);
   text-decoration: none;
   text-align: center;
   text-transform: uppercase;
-  border: 2px solid $secondaryColor;
+  margin: 3em auto;
+  padding: 1px 4px;
+  font-size: clamp(1rem, 2vw, 2rem);
+  border: 2px solid $whiteText;
   border-radius: 5px;
   background-color: $primaryColor;
-  color: $secondaryColor;
+  color: $whiteText;
   transition: all .7s;
 }
 
@@ -30,36 +39,112 @@
 .cancel:focus-within {
   border: 2px solid $primaryColor;
   background-color: $secondaryColor;
-  color: $text;
+  color: $blackText;
 }
 
-.findBookButton {
-  min-width: 130px;
-}
+
+// addBook form styling
 
 form {
   display: flex;
   flex-direction: column;
-  padding: 3em 1em;
+  justify-content: space-between;
+  align-items: center;
+  height: 60%;
+  margin: 1em;
+  padding: 4em 1em;
+  border: 2px solid $secondaryColor;
+  border-radius: 10px;
+  max-width: 1200px;
 
   input, select{
     background-color: $background;
     border: 2px double $secondaryColor;
     border-radius: 5px;
-    box-shadow: 3px 3px $text;
-    font-size: clamp(1rem, 2vw, 3rem);
+    box-shadow: 3px 3px $blackText;
+    font-size: 1rem;
     padding: .4em;
     margin: .6em 0;
+    width: 50%;
+    min-width: 250px;
   }
 
   label {
-    font-size: clamp(1rem, 2vw, 3rem);
+    font-size: clamp(1.3rem, 2.6vw, 4.5rem);
     margin: 2em 0 .6em 0;
+    text-align: center;
+    font-weight: bold;
   }
 
+}
+
+// book title options from API  - styling 
+.titleOptions.card{
+  position: static;
+  display: grid;
+  grid-template-columns: minmax(1fr, 450px);
+  grid-auto-rows: 1fr;
+  
+  li {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+    margin: 15px;
+    border: 2px solid $secondaryColor;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+
+  .bookInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .selectedTitle {
+    min-width: 200px;
+    max-width: 300px;
+    margin-bottom: 10px;
+  }
+}
+
+// choose bookshelf form styling
+
+.chooseBookshelf.card{
+  max-width: 1200px;
+}
+
+.addBookButton {
+  min-width: 200px;
+  max-width: 300px;
+  margin: 2em auto;
+}
+
+
+
+// media queries
+@media only screen and (min-width: 768px){
+  .titleOptions.card {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 1000px){
+  .findBookButton,
+  .cancel,
+  .selectedTitle,
   .addBookButton {
-    margin: 3em auto 2em auto;
+    font-size: 1.2rem;
   }
 
- 
+  .addBookForm.card {
+    label{
+      margin-top: 1em;
+    }
+  }
+
 }

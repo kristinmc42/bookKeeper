@@ -25,8 +25,6 @@ import DisplayTitleOptions from "../DisplayTitleOptions/DisplayTitleOptions";
 
 
 function AddBookForm () {
-  // set state for showing form
-  const [ showForm , setShowForm ] = useState(true);
   // set state for user input
   const [ userInput, setUserInput ] = useState("");
   const [ optionChoice, setOptionChoice ] = useState("");
@@ -135,7 +133,6 @@ function AddBookForm () {
         setUserInput("");
         setOptionChoice("");
         setBookToAdd({})
-        setShowForm(false);
 
         // route back to Home
         navigate("/");
@@ -170,37 +167,42 @@ function AddBookForm () {
             type="text" 
             id="bookTitle" 
             placeholder="Enter book title"
+            aria-label="Enter book title"
             onChange={handleInputChange}
             value={userInput}
             />
           <Button text="Find book" className="findBookButton" />
+          <Link className="cancel" to="/">Cancel</Link>
         </form>
-        <Link className="cancel" to="/">Cancel</Link>
   
 
-        <ul className="titleOptions">
+        <ul>
           {/* if there are search options, map through the options and display the info from the API call */}
         {
           searchOptions
-          ?
-          searchOptions.map(optionItem => {
-           
-            return(
-        
-              <li  key={optionItem.id}>
-                <DisplayTitleOptions 
-                  id={optionItem.id}
-                  title={optionItem.volumeInfo.title}
-                  authors={optionItem.volumeInfo.authors ? optionItem.volumeInfo.authors : null}
-                  image={optionItem.volumeInfo.imageLinks ? optionItem.volumeInfo.imageLinks.thumbnail :"No image"}
-                  alt={optionItem.volumeInfo.title}
-                />
-                <Button className="selectedTitle"  text="Choose Book" value={optionItem.id} onClick={handleBookSelected}/>
-              </li>
-             
-              )
-            })
-            :null
+          
+          ? <Card className="titleOptions">
+              {
+                searchOptions.map(optionItem => {
+                
+                  return(
+              
+                    <li  key={optionItem.id}>
+                      <DisplayTitleOptions 
+                        id={optionItem.id}
+                        title={optionItem.volumeInfo.title}
+                        authors={optionItem.volumeInfo.authors ? optionItem.volumeInfo.authors : null}
+                        image={optionItem.volumeInfo.imageLinks ? optionItem.volumeInfo.imageLinks.thumbnail :"No image"}
+                        alt={optionItem.volumeInfo.title}
+                      />
+                      <Button className="selectedTitle"  text="Choose Book" value={optionItem.id} onClick={handleBookSelected}/>
+                    </li>
+                  
+                    )
+                  })
+              }
+            </Card>
+          :null
           }
         </ul>
       </Card>

@@ -1,5 +1,5 @@
 .card {
-  position: absolute;
+  position: relative;
   top: 5%;
   z-index: 50;
   width: 100%;
