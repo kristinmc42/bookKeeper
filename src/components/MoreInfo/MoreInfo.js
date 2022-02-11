@@ -7,7 +7,7 @@ function MoreInfo({ book }) {
   // init state for showing more info
   const [ showMoreInfo, setShowMoreInfo ] = useState(false);
 
-  console.log(book.bookInfo);
+  // console.log(book.bookInfo);
   // when user clicks on more info button
   const handleShowMoreInfo = () => {
     setShowMoreInfo(true);
