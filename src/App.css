@@ -3,6 +3,10 @@
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-image: url(../public/books.jpg);
   background-size: cover;
   background-position: center;
@@ -20,6 +24,7 @@ header h1 {
   padding: 0.5em;
   text-align: center;
   color: #483C0C;
+  font-size: clamp(2rem, 4vw, 3rem);
 }
 
 footer {

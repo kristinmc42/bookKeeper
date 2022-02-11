@@ -1,18 +1,18 @@
 button {
   width: 50%;
   margin: 3px auto;
-  font-size: clamp(1rem, 3vw, 3rem);
+  font-size: clamp(1rem, 2vw, 2rem);
   text-transform: uppercase;
-  border: 2px solid #f6f6b8;
+  border: 2px solid white;
   border-radius: 5px;
-  background-color: #07061c;
-  color: #f6f6b8;
+  background-color: #424342;
+  color: white;
   transition: all 0.7s;
 }
 
 button:hover,
 button:focus-within {
-  border: 2px solid #07061c;
-  background-color: #f6f6b8;
+  border: 2px solid #424342;
+  background-color: #baf3f9;
   color: black;
 }/*# sourceMappingURL=Button.css.map */

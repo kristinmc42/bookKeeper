@@ -1,55 +1,125 @@
-.addBookForm {
-  top: 8%;
-  height: 80%;
+.addBookForm.card {
+  top: 12%;
+  height: 60%;
   display: flex;
   flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.findBookButton,
+.cancel {
+  min-width: 140px;
+  max-width: 300px;
+  width: 55%;
 }
 
 .cancel {
   width: 50%;
-  max-width: 130px;
-  margin: 3px auto;
-  padding: 1px 4px;
-  font-size: clamp(1rem, 3vw, 3rem);
   text-decoration: none;
   text-align: center;
   text-transform: uppercase;
-  border: 2px solid #f6f6b8;
+  margin: 3em auto;
+  padding: 1px 4px;
+  font-size: clamp(1rem, 2vw, 2rem);
+  border: 2px solid white;
   border-radius: 5px;
-  background-color: #07061c;
-  color: #f6f6b8;
+  background-color: #424342;
+  color: white;
   transition: all 0.7s;
 }
 
 .cancel:hover,
 .cancel:focus-within {
-  border: 2px solid #07061c;
-  background-color: #f6f6b8;
+  border: 2px solid #424342;
+  background-color: #baf3f9;
   color: black;
-}
-
-.findBookButton {
-  min-width: 130px;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  padding: 3em 1em;
+  justify-content: space-between;
+  align-items: center;
+  height: 60%;
+  margin: 1em;
+  padding: 4em 1em;
+  border: 2px solid #baf3f9;
+  border-radius: 10px;
+  max-width: 1200px;
 }
 form input, form select {
   background-color: #919191;
-  border: 2px double #f6f6b8;
+  border: 2px double #baf3f9;
   border-radius: 5px;
   box-shadow: 3px 3px black;
-  font-size: clamp(1rem, 2vw, 3rem);
+  font-size: 1rem;
   padding: 0.4em;
   margin: 0.6em 0;
+  width: 50%;
+  min-width: 250px;
 }
 form label {
-  font-size: clamp(1rem, 2vw, 3rem);
+  font-size: clamp(1.3rem, 2.6vw, 4.5rem);
   margin: 2em 0 0.6em 0;
+  text-align: center;
+  font-weight: bold;
 }
-form .addBookButton {
-  margin: 3em auto 2em auto;
+
+.titleOptions.card {
+  position: static;
+  display: grid;
+  grid-template-columns: minmax(1fr, 450px);
+  grid-auto-rows: 1fr;
+}
+.titleOptions.card li {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+  margin: 15px;
+  border: 2px solid #baf3f9;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.titleOptions.card .bookInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+.titleOptions.card .selectedTitle {
+  min-width: 200px;
+  max-width: 300px;
+  margin-bottom: 10px;
+}
+
+.chooseBookshelf.card {
+  max-width: 1200px;
+}
+
+.addBookButton {
+  min-width: 200px;
+  max-width: 300px;
+  margin: 2em auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .titleOptions.card {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .findBookButton,
+.cancel,
+.selectedTitle,
+.addBookButton {
+    font-size: 1.2rem;
+  }
+
+  .addBookForm.card label {
+    margin-top: 1em;
+  }
 }/*# sourceMappingURL=AddBookForm.css.map */

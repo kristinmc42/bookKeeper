@@ -5,6 +5,10 @@
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-image: url(../public/books.jpg);
   background-size: cover;
   background-position: center;
@@ -22,6 +26,7 @@ header {
     padding: .5em;
     text-align: center;
     color: $header;
+    font-size: clamp(2rem, 4vw, 3rem);
   }
 }
 

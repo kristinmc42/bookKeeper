@@ -1,6 +1,7 @@
 .wrapper {
   max-width: 1600px;
   width: 95%;
+  padding-top: 10px;
 }
 .wrapper .link {
   position: -webkit-sticky;
@@ -12,15 +13,15 @@
   padding: 5px 10px;
   font-size: clamp(1rem, 2.5vw, 2rem);
   text-transform: uppercase;
-  border: 2px solid #f6f6b8;
+  border: 2px solid white;
   border-radius: 5px;
-  background-color: #07061c;
-  color: #f6f6b8;
+  background-color: #424342;
+  color: white;
   transition: all 0.7s;
 }
 .wrapper .link:hover,
 .wrapper .link:focus-within {
-  border: 2px solid #07061c;
-  background-color: #f6f6b8;
+  border: 2px solid #424342;
+  background-color: #baf3f9;
   color: black;
 }/*# sourceMappingURL=Home.css.map */
