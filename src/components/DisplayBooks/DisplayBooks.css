@@ -51,4 +51,11 @@ ul {
   display: flex;
   flex-direction: column;
   margin-left: 15px;
+}
+.bookshelf .bookButtons .link {
+  min-width: 90px;
+  max-width: 300px;
+  font-size: clamp(0.7rem, 2vw, 1rem);
+  position: static;
+  padding: 2px 5px;
 }/*# sourceMappingURL=DisplayBooks.css.map */

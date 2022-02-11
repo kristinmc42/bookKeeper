@@ -1,11 +1,8 @@
-@import "../../colors";
-
-
-.moveBook.card{
+.moveBook.card {
   max-width: 1200px;
 }
 
-.moveBookButton{
+.moveBookButton {
   min-width: 200px;
   max-width: 300px;
   margin: 2em auto;
@@ -15,9 +12,8 @@
   text-align: center;
 }
 
-// media queries
-@media only screen and (min-width: 1000px){
-  .moveBookButton{
+@media only screen and (min-width: 1000px) {
+  .moveBookButton {
     font-size: 1.2rem;
   }
-}
+}/*# sourceMappingURL=MoveBookForm.css.map */

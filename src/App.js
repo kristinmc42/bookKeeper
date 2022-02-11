@@ -4,7 +4,7 @@ import "./App.scss";
 import AddBookForm from "./components/AddBookForm/AddBookForm";
 import DeleteTitle from "./components/DeleteTitle/DeleteTitle";
 import Home from "./components/Home/Home";
-import MoveTitle from "./components/MoveTitle/MoveTitle";
+import MoveBookForm from "./components/MoveBookForm/MoveBookForm";
 
 
 
@@ -20,11 +20,11 @@ function App() {
         <main>
           {/* <Home />    */}
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/addBook" element={<AddBookForm />} />
+          <Route  path="/" element={<Home />} />
+          <Route  path="/addBook" element={<AddBookForm />} />
        
-          <Route exact path="/deleteBook" element={<DeleteTitle />} />
-          <Route exact path="/moveBook" element={<MoveTitle />} />
+          <Route  path="/deleteBook" element={<DeleteTitle />} />
+          <Route  path="/moveBook/:id" element={<MoveBookForm />} />
           <Route>{"404"}</Route>
         </Routes>
         </main>

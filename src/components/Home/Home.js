@@ -24,7 +24,7 @@ function Home() {
 
         // get values from data object
         for (let property in data){
-          console.log(data[property])
+          // console.log(data[property])
           newState.push({
             bookInfo: data[property],
             bookID: property

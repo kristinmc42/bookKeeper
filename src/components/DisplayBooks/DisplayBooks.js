@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import DeleteTitle from "../DeleteTitle/DeleteTitle";
-import MoveTitle from "../MoveTitle/MoveTitle";
 import MoreInfo from "../MoreInfo/MoreInfo";
 import "./DisplayBooks.scss";
 
@@ -24,7 +24,7 @@ function DisplayBooks({ allBooks }){
    
     // go through array of books whenever there is a change in props and sort each book by category
     allBooks.forEach((book) => {
-      console.log(book)
+      // console.log(book)
       if (book.bookInfo.category === "read"){
         newReadArray.push(book);
         setReadBooks(newReadArray);
@@ -54,10 +54,10 @@ function DisplayBooks({ allBooks }){
                 return(
                   <li key={readBook.bookID}>
                     <img src={readBook.bookInfo.image} alt={readBook.bookInfo.title} />
-                    {/* <p>{readBook.bookInfo.title}</p> */}
+
                     <div className="bookButtons">
                       <MoreInfo book={readBook}/>
-                      <MoveTitle id={readBook.bookID} title={readBook.bookInfo.title}/>
+                      <Link className="link" to={`/moveBook/${readBook.bookID}`}>Move</Link>
                       <DeleteTitle id={readBook.bookID}/>
                     </div>
                   </li>
@@ -76,10 +76,10 @@ function DisplayBooks({ allBooks }){
                 return(
                   <li key={currentBook.bookID}>
                     <img src={currentBook.bookInfo.image} alt={currentBook.bookInfo.title} />
-                    {/* <p>{currentBook.bookInfo.title}</p> */}
+
                     <div className="bookButtons">
                       <MoreInfo book={currentBook} />
-                      <MoveTitle id={currentBook.bookID} title={currentBook.bookInfo.title}/>
+                      <Link className="link" to={`/moveBook/${currentBook.bookID}`}>Move</Link>
                       <DeleteTitle id={currentBook.bookID}/>
                     </div>
                   </li>
@@ -98,11 +98,11 @@ function DisplayBooks({ allBooks }){
                 return(
                   <li key={toReadBook.bookID}>
                     <img src={toReadBook.bookInfo.image} alt={toReadBook.bookInfo.title} />
-                    {/* <p>{toReadBook.bookInfo.title}</p> */}
+
                     <div className="bookButtons">
                       <MoreInfo book={toReadBook} />
+                      <Link className="link" to={`/moveBook/${toReadBook.bookID}`}>Move</Link>
                       <DeleteTitle id={toReadBook.bookID}/>
-                      <MoveTitle id={toReadBook.bookID} title={toReadBook.bookInfo.title}/>
                     </div>
                   </li>
                 )
