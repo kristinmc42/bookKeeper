@@ -1,54 +1,101 @@
-import Button from "../Button/Button";
+
 import Card from "../Card/Card";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link,  useParams } from "react-router-dom";
+import firebase from "../../firebase";
 import "./MoreInfo.scss";
 
-function MoreInfo({ book }) {
-  // init state for showing more info
-  const [ showMoreInfo, setShowMoreInfo ] = useState(false);
+function MoreInfo() {
+  // init state for bookInfo
+  const [ bookInfo, setBookInfo ] = useState({});
 
-  // console.log(book.bookInfo);
-  // when user clicks on more info button
-  const handleShowMoreInfo = () => {
-    setShowMoreInfo(true);
-  }
+  // init use params
+  const { id } = useParams();
 
-  // when user closes the More info card
-  const handleCloseCard = () => {
-    setShowMoreInfo(false);
-  }
+  // get info from database on rendering
+  useEffect(() => {
+    // get item from the database using the book id
+    const dbItem = firebase.database().ref(id);
+  
+    // get the book information and save in state
+    dbItem.get().then((snapshot) => {
+      if (snapshot.exists()){
+        const book = snapshot.val();
+        setBookInfo(book);
+        console.log(book);
+      }
+    }).catch((error) => {
+      console.log(error);
+    })
+  }, [id])
 
   return(
     <>
-    {
-      showMoreInfo
-      ? <Card className="moreInfo">
-          <img src={book.bookInfo.image} alt={book.bookInfo.alt} />
-          <h2>{book.bookInfo.title}</h2>
+  
+     <Card className="moreInfo">
+      < div className="moreInfoContainer">
           {
-            book.bookInfo.authors
-            ? book.bookInfo.authors.map(author => {
-              return(
-                <h3 key={book.bookInfo.id + author}>By: {author}</h3>
-              )
-            })
-           : null
+          bookInfo
+          ?<>
+            <img src={bookInfo.image} alt={bookInfo.alt} />
+
+            <h2>{bookInfo.title}</h2>
+
+            {/* display authors */}
+            {
+              bookInfo.authors && bookInfo.authors.length > 0
+              // if there is only one author
+              ? bookInfo.authors.length === 1
+                ?  bookInfo.authors.map(author => {
+                  return(
+                    <h3 key={id + author}>By: {author}</h3>
+                  )
+                })
+                // if there is more than one author
+                : <>
+                  <h3>By: <span></span>
+                  {
+                    bookInfo.authors.map((author, index) => {
+                      return(
+                        <>
+                        {author}
+                        {
+                          //  prints a comma after the author unless it is the last one in the array
+                        index < bookInfo.authors.length -1
+                        ?<span>, </span>
+                        
+                        :null
+                        }
+                       </>
+                      )
+                    })
+                  }
+                  </h3>
+                </>
+              // if no authors
+              :null
+              }
+
+            {/* display genres */}
+            { bookInfo.genres
+              ?bookInfo.genres.map(genre => {
+                return(
+                  <h4 key={bookInfo.id + genre}>Genre: {genre}</h4>
+                )
+              })
+              :null
+            }
+
+            <h4>Page count: {bookInfo.pageCount ?bookInfo.pageCount :"not availible"}</h4>
+
+            <p><span className="bold">Description:</span> {bookInfo.description ?bookInfo.description :"not availible"}</p> 
+          </>
+          :null
           }
-          { book.bookInfo.genres
-            ?book.bookInfo.genres.map(genre => {
-              return(
-                <h4 key={book.bookInfo.id + genre}>Genre: {genre}</h4>
-              )
-            })
-            :null
-          }
-          <h4>Page count: {book.bookInfo.pageCount ?book.bookInfo.pageCount :null}</h4>
-          <p>Description: {book.bookInfo.description ?book.bookInfo.description :null}</p>
-          <Button text="close" className="close" onClick={handleCloseCard} />
+
+        <Link className="cancel" to="/">Close</Link>
+        </div>
       </Card>
-      
-      : <Button text="more info" className="moreInfoButton" onClick={handleShowMoreInfo}/>
-    }
     </>
   )
 }

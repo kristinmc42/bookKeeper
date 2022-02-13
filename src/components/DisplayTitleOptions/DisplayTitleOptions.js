@@ -1,3 +1,5 @@
+// this component displays book information according to the props it receives
+
 
 function DisplayTitleOptions({ id, title, authors, image, alt }) {
  
@@ -10,14 +12,38 @@ function DisplayTitleOptions({ id, title, authors, image, alt }) {
       }
       <p>{title}</p>
       {
-        authors
-        ?
-        authors.map(author => {
-          return(
-            
-            <p key={id + author}>By: {author}</p>
+        authors.length > 0
+        // if there is only one author
+        ? authors.length === 1
+          ?  authors.map(author => {
+            return(
+              <p key={id + author}>By: {author}</p>
             )
           })
+          // if there is more than one author
+          : <>
+            <p>By: <span></span>
+            {
+              authors.map((author, index) => {
+                return(
+                  <>
+                  {author}
+                  {
+                    //  prints a comma after the author unless it is the last one in the array
+                  index < authors.length -1
+                  ?<span>, </span>
+                  
+                  :null
+                  
+                  }
+                  </>
+                )
+              })
+            }
+            </p>
+          </>
+
+        // if no authors
         :null
         }
     </div>

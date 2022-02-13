@@ -1,36 +1,35 @@
-.moreInfo{
-  position: absolute;
-  z-index: 30;
-  left: 0;
-  top: 20%;
-  bottom: 20%;
+@import "../../colors";
+
+
+.moreInfo.card{
+  max-width: 1200px;
+}
+
+.moreInfoContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: left;
-  padding: 40px 15px;
-  width: 96%;
-  img {
-    display: block;
-    width: 100%;
-    max-width: 200px;
+  border: 2px solid $secondaryColor;
+  margin: 1em;
+  padding: 1em;
+
+  img{
+    margin-top: 2em;
+    margin-bottom: 1em;
   }
-  h3, h4 {
-    padding: 5px;
-    margin: 0;
+  h2, h3, h4 {
+    text-align: center;
+    margin: .5em auto;
+  }
+  p {
+    width: 75%;
+  }
+  .bold {
+    font-weight: bold;
   }
 }
 
 
 
 
-.moreInfoButton{
-
- font-size: clamp(.5rem, 2vw, .8rem);
- min-width: 45px;
- width: 100%;
- padding-left: 8px;
- padding-right: 8px;
-
-}

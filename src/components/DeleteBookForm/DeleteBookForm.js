@@ -1,3 +1,8 @@
+// this component renders a form for the user to confirm they want to delete the title from their collection
+// the form is submitted if they click on the "Yes" button
+// a cancel link is also rendered and will take the user back to the home page (their bookshelf)
+
+
 import React from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import firebase from "../../firebase.js";
@@ -29,7 +34,7 @@ function DeleteBookForm() {
     <>
       <Card className="deleteBook">
         <form action="submit" onSubmit={handleDeleteTitle}>
-          <label htmlFor="yesButton">Are you sure you want to remove this title from your library?</label>
+          <label htmlFor="yesButton">Are you sure you want to permanently delete this title from your library?</label>
           
           <Button id="yesButton" text="Yes" className="yesButton"/>
 

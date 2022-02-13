@@ -1,6 +1,12 @@
+// this component takes an array of books as a prop
+// each book in the array is sorted by category and put in a new array based on the category
+// these new arrays are set in state
+// each are mapped through to display an image of each title according to their categories
+// links are displayed for each title for more info, to move or to delete the title
+
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import MoreInfo from "../MoreInfo/MoreInfo";
 import "./DisplayBooks.scss";
 
 function DisplayBooks({ allBooks }){
@@ -55,10 +61,9 @@ function DisplayBooks({ allBooks }){
                     <img src={readBook.bookInfo.image} alt={readBook.bookInfo.title} />
 
                     <div className="bookButtons">
-                      <MoreInfo book={readBook}/>
+                      <Link className="link" to={`/moreInfo/${readBook.bookID}`}>More Info</Link>
                       <Link className="link" to={`/moveBook/${readBook.bookID}`}>Move</Link>
                       <Link className="link" to={`/deleteBook/${readBook.bookID}`}>Delete</Link>
-                      {/* <DeleteTitle id={readBook.bookID}/> */}
                     </div>
                   </li>
                 )
@@ -78,11 +83,9 @@ function DisplayBooks({ allBooks }){
                     <img src={currentBook.bookInfo.image} alt={currentBook.bookInfo.title} />
 
                     <div className="bookButtons">
-                      <MoreInfo book={currentBook} />
+                      <Link className="link" to={`/moreInfo/${currentBook.bookID}`}>More Info</Link>
                       <Link className="link" to={`/moveBook/${currentBook.bookID}`}>Move</Link>
                       <Link className="link" to={`/deleteBook/${currentBook.bookID}`}>Delete</Link>
-                      {/* <DeleteTitle id={currentBook.bookID}/> */}
-                     
                     </div>
                   </li>
                 )
@@ -102,10 +105,9 @@ function DisplayBooks({ allBooks }){
                     <img src={toReadBook.bookInfo.image} alt={toReadBook.bookInfo.title} />
 
                     <div className="bookButtons">
-                      <MoreInfo book={toReadBook} />
+                      <Link className="link" to={`/moreInfo/${toReadBook.bookID}`}>More info</Link>
                       <Link className="link" to={`/moveBook/${toReadBook.bookID}`}>Move</Link>
                       <Link className="link" to={`/deleteBook/${toReadBook.bookID}`}>Delete</Link>
-                      {/* <DeleteTitle id={toReadBook.bookID}/> */}
                     </div>
                   </li>
                 )

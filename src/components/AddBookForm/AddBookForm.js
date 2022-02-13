@@ -132,7 +132,8 @@ function AddBookForm () {
         // clear values of state
         setUserInput("");
         setOptionChoice("");
-        setBookToAdd({})
+        setBookToAdd({});
+        setSearchOptions([]);
 
         // route back to Home
         navigate("/");
@@ -148,6 +149,7 @@ function AddBookForm () {
   return(
     <>
       {
+        // conditionally renders the form to select a bookshelf once the user has selected a book from the options
         showBookshelfSelection
         ? <Card className="chooseBookshelf">
           <form action="submit" onSubmit={handleBookshelfFormSubmit}>
@@ -160,30 +162,32 @@ function AddBookForm () {
            </form>
         </Card>
 
-      :<Card className="addBookForm">
-        <form action="submit" onSubmit={handleSearchFormSubmit}>
-          <label htmlFor="bookTitle">Add a book to your collection</label>
-          <input 
-            type="text" 
-            id="bookTitle" 
-            placeholder="Enter book title"
-            aria-label="Enter book title"
-            onChange={handleInputChange}
-            value={userInput}
-            />
-          <Button text="Find book" className="findBookButton" />
-          <Link className="cancel" to="/">Cancel</Link>
-        </form>
+      // by default on initial rendering, shows the form to get user input which will be sent to the API 
+      :<>
+        <Card className="addBookForm">
+          <form action="submit" onSubmit={handleSearchFormSubmit}>
+            <label htmlFor="bookTitle">Add a book to your collection</label>
+            <input 
+              type="text" 
+              id="bookTitle" 
+              placeholder="Enter book title"
+              aria-label="Enter book title"
+              onChange={handleInputChange}
+              value={userInput}
+              />
+            <Button text="Find book" className="findBookButton" />
+            <Link className="cancel" to="/">Cancel</Link>
+          </form>
+        </Card>
   
 
-        <ul>
-          {/* if there are search options, map through the options and display the info from the API call */}
+        {/* if there are search options, map through the options and display the info from the API call */}
         {
-          searchOptions
-          
+          searchOptions.length > 0
           ? <Card className="titleOptions">
-              {
-                searchOptions.map(optionItem => {
+              <ul className="titleOptions">
+                {
+                  searchOptions.map(optionItem => {
                 
                   return(
               
@@ -200,12 +204,13 @@ function AddBookForm () {
                   
                     )
                   })
-              }
+                }
+              </ul>
             </Card>
           :null
-          }
-        </ul>
-      </Card>
+        
+        }
+      </>
       }
 
     </>
