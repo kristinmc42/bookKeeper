@@ -1,10 +1,8 @@
 .card {
   position: relative;
-  top: 5%;
-  z-index: 50;
   width: 100%;
   background-color: #919191;
   border-radius: 10px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
-  margin: 0;
+  margin: 1em auto;
 }/*# sourceMappingURL=Card.css.map */

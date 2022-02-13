@@ -1,3 +1,12 @@
+// this component renders a form that lets the user make a selection froma dropdown of which bookshelf they would like to move the selected title to
+// the user's selection is stored in state
+// there must be an option selected for the form to submit
+// the id of the book is passed in the url and extracted with the useParams hook
+// the new category is updated in firebase for that book id
+// the useNavigate hook is used to navigate back to the home page when the form is submitted
+// there is a cancel link which returns the user to the home page
+
+
 import React from "react";
 import { useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";

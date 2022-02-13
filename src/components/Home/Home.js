@@ -1,3 +1,10 @@
+// home component is home page
+// contains the Link to add books
+// contains DisplayBooks component to display the users' library
+// makes a call to firebase to retrieve all of the books from the realtime database
+// the array of books are stored in state and passed to DisplayBooks component
+
+
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";

@@ -1,31 +1,27 @@
-.moreInfo {
-  position: absolute;
-  z-index: 30;
-  left: 0;
-  top: 20%;
-  bottom: 20%;
+.moreInfo.card {
+  max-width: 1200px;
+}
+
+.moreInfoContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: left;
-  padding: 40px 15px;
-  width: 96%;
+  border: 2px solid #baf3f9;
+  margin: 1em;
+  padding: 1em;
 }
-.moreInfo img {
-  display: block;
-  width: 100%;
-  max-width: 200px;
+.moreInfoContainer img {
+  margin-top: 2em;
+  margin-bottom: 1em;
 }
-.moreInfo h3, .moreInfo h4 {
-  padding: 5px;
-  margin: 0;
+.moreInfoContainer h2, .moreInfoContainer h3, .moreInfoContainer h4 {
+  text-align: center;
+  margin: 0.5em auto;
 }
-
-.moreInfoButton {
-  font-size: clamp(.5rem, 2vw, .8rem);
-  min-width: 45px;
-  width: 100%;
-  padding-left: 8px;
-  padding-right: 8px;
+.moreInfoContainer p {
+  width: 75%;
+}
+.moreInfoContainer .bold {
+  font-weight: bold;
 }/*# sourceMappingURL=MoreInfo.css.map */
