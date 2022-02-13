@@ -1,0 +1,15 @@
+@import "../../colors";
+
+
+.error{
+  max-width: 1200px;
+
+  h2 {
+    text-align: center;
+    padding: 1em;
+    margin: 1em;
+    border: 2px solid $secondaryColor;
+    border-radius: 10px;
+  }
+}
+

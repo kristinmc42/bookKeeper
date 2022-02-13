@@ -1,0 +1,10 @@
+.error {
+  max-width: 1200px;
+}
+.error h2 {
+  text-align: center;
+  padding: 1em;
+  margin: 1em;
+  border: 2px solid #baf3f9;
+  border-radius: 10px;
+}/*# sourceMappingURL=ErrorMessage.css.map */

@@ -20,7 +20,7 @@ import Card from "../Card/Card.js";
 import Select from "../Select/Select.js";
 import axios from "axios";
 import DisplayTitleOptions from "../DisplayTitleOptions/DisplayTitleOptions";
-
+import ErrorMessage from "../ErrorMessage/ErrorMessage.js";
 
 
 
@@ -34,6 +34,8 @@ function AddBookForm () {
   const [ bookToAdd, setBookToAdd ] = useState({});
   // state to show form for selecting bookshelf
   const [ showBookshelfSelection, setShowBookshelfSelection ] = useState(false);
+  // init state for error found
+  const [ errorFound, setErrorFound ] = useState(false);
 
   // init history
   let navigate = useNavigate();
@@ -57,6 +59,8 @@ function AddBookForm () {
     setSearchOptions([]);
     // clear book to add
     setBookToAdd({});
+    // clear error message
+    setErrorFound(false);
 
     if (userInput){
 
@@ -72,18 +76,24 @@ function AddBookForm () {
       })
       .then(response => {
         // save array of items in variable
-        const options = [...response.data.items];
+        const returnedData = response.data;
+
+        // check that there is information in the array
+        if (returnedData.totalItems > 0){
+          const options = [...returnedData.items]
+          setSearchOptions(options);
+        }else {
+          // if there is an error (no info) with the data returned from the API
+           setErrorFound(true);
+        }
         
-        setSearchOptions(options);
         // clear input field
         setUserInput("");
       })
       .catch(error => {
         console.log(error)
         setUserInput("");
-        return (
-          <p className="errorMessage">Sorry. There was an error. Please try again.</p>
-        )
+        setErrorFound(true);
       })
     }
   }
@@ -148,6 +158,13 @@ function AddBookForm () {
 
   return(
     <>
+      {/* displays if error in API call */}
+      {
+        errorFound
+        ? <ErrorMessage />
+        : null
+      }
+
       {
         // conditionally renders the form to select a bookshelf once the user has selected a book from the options
         showBookshelfSelection
@@ -212,7 +229,6 @@ function AddBookForm () {
         }
       </>
       }
-
     </>
   )
 }
