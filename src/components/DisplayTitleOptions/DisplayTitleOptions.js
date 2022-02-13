@@ -12,7 +12,7 @@ function DisplayTitleOptions({ id, title, authors, image, alt }) {
       }
       <p>{title}</p>
       {
-        authors.length > 0
+        authors && authors.length > 0
         // if there is only one author
         ? authors.length === 1
           ?  authors.map(author => {
