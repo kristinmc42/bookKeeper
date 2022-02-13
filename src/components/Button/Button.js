@@ -6,7 +6,7 @@ import "./Button.scss";
 
 function Button(props) {
   return(
-    <button onClick={props.onClick} className={props.className} onFocus={props.onFocus} value={props.value}>{props.text} </button>
+    <button onClick={props.onClick} className={props.className} onFocus={props.onFocus} value={props.value} id={props.id}>{props.text} </button>
   )
 }
 

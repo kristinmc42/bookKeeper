@@ -1,33 +1,15 @@
-.show, .hide {
-  position: absolute;
-  top: 9%;
-  left: 1000px;
-  height: 100%;
-  text-align: center;
-  padding: 1em 0.2em;
-}
-.show .deleteFormContainer, .hide .deleteFormContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 95%;
-  height: 100%;
-}
-.show .deleteFormContainer p, .hide .deleteFormContainer p {
-  font-size: clamp(1rem, 2.5vw, 2rem);
-  margin-bottom: 60px;
-}
-.show .yesButton, .hide .yesButton {
-  margin: 2em 0 1em 0;
-}
-.show .yesButton, .show .noButton, .hide .yesButton, .hide .noButton {
-  font-size: clamp(1rem, 2.2vw, 1.6rem);
-  max-width: 300px;
+.deleteBook {
+  max-width: 1200px;
 }
 
-.show {
-  left: 0;
-  z-index: 40;
-  height: 80%;
+.yesButton {
+  min-width: 200px;
+  max-width: 300px;
+  margin: 2em auto;
+}
+
+@media only screen and (min-width: 1000px) {
+  .yesButton {
+    font-size: 1.2rem;
+  }
 }/*# sourceMappingURL=DeleteBookForm.css.map */

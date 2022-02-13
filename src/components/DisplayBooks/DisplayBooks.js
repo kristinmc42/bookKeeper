@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import DeleteTitle from "../DeleteTitle/DeleteTitle";
 import MoreInfo from "../MoreInfo/MoreInfo";
 import "./DisplayBooks.scss";
 
@@ -58,7 +57,8 @@ function DisplayBooks({ allBooks }){
                     <div className="bookButtons">
                       <MoreInfo book={readBook}/>
                       <Link className="link" to={`/moveBook/${readBook.bookID}`}>Move</Link>
-                      <DeleteTitle id={readBook.bookID}/>
+                      <Link className="link" to={`/deleteBook/${readBook.bookID}`}>Delete</Link>
+                      {/* <DeleteTitle id={readBook.bookID}/> */}
                     </div>
                   </li>
                 )
@@ -80,7 +80,9 @@ function DisplayBooks({ allBooks }){
                     <div className="bookButtons">
                       <MoreInfo book={currentBook} />
                       <Link className="link" to={`/moveBook/${currentBook.bookID}`}>Move</Link>
-                      <DeleteTitle id={currentBook.bookID}/>
+                      <Link className="link" to={`/deleteBook/${currentBook.bookID}`}>Delete</Link>
+                      {/* <DeleteTitle id={currentBook.bookID}/> */}
+                     
                     </div>
                   </li>
                 )
@@ -102,7 +104,8 @@ function DisplayBooks({ allBooks }){
                     <div className="bookButtons">
                       <MoreInfo book={toReadBook} />
                       <Link className="link" to={`/moveBook/${toReadBook.bookID}`}>Move</Link>
-                      <DeleteTitle id={toReadBook.bookID}/>
+                      <Link className="link" to={`/deleteBook/${toReadBook.bookID}`}>Delete</Link>
+                      {/* <DeleteTitle id={toReadBook.bookID}/> */}
                     </div>
                   </li>
                 )
