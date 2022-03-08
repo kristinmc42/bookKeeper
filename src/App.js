@@ -18,6 +18,7 @@ function App() {
       <div className="pageContainer">
         <header>
           <h1>Book Keeper</h1>
+          <p>Catalogue your collection of books you have read, are currently reading as well as your wishlist of books you want to read. </p>
         </header>
 
         <main>

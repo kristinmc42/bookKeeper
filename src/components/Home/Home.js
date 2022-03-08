@@ -43,7 +43,7 @@ function Home() {
 
   return(
     <div className="wrapper">
-      <Link className="link" to="/addBook">Add a book</Link>
+      <Link className="link addBook" to="/addBook">Add a book</Link>
       <DisplayBooks allBooks={ books }/>
     </div>
   )
