@@ -47,19 +47,19 @@ function DisplayBooks({ allBooks }){
 
 
   return(
-    <>
+    <div className="bookshelfContainer">
       <h2>My Books</h2>
       <ul className="bookshelf">
         <li>
           <h3>Read</h3>
-          <ul className="bookshelfRead">
+          <ul className="bookshelf read">
             {
               readBooks
               ? readBooks.map((readBook) => {
                 return(
                   <li key={readBook.bookID}>
                     <img src={readBook.bookInfo.image} alt={readBook.bookInfo.title} />
-
+                    <p className="title">{readBook.bookInfo.title}</p>
                     <div className="bookButtons">
                       <Link className="link" to={`/moreInfo/${readBook.bookID}`}>More Info</Link>
                       <Link className="link" to={`/moveBook/${readBook.bookID}`}>Move</Link>
@@ -74,14 +74,14 @@ function DisplayBooks({ allBooks }){
         </li>
         <li>
           <h3>Currently Reading</h3>
-          <ul className="bookshelfCurrentlyReading">
+          <ul className="bookshelf currentlyReading">
             {
               booksCurrentlyReading
               ? booksCurrentlyReading.map((currentBook) => {
                 return(
                   <li key={currentBook.bookID}>
                     <img src={currentBook.bookInfo.image} alt={currentBook.bookInfo.title} />
-
+                    <p className="title">{currentBook.bookInfo.title}</p>
                     <div className="bookButtons">
                       <Link className="link" to={`/moreInfo/${currentBook.bookID}`}>More Info</Link>
                       <Link className="link" to={`/moveBook/${currentBook.bookID}`}>Move</Link>
@@ -96,14 +96,14 @@ function DisplayBooks({ allBooks }){
         </li>
         <li>
           <h3>To Read</h3>
-          <ul className="bookshelfToRead">
+          <ul className="bookshelf toRead">
             {
               booksToRead
               ? booksToRead.map((toReadBook) => {
                 return(
                   <li key={toReadBook.bookID}>
                     <img src={toReadBook.bookInfo.image} alt={toReadBook.bookInfo.title} />
-
+                    <p className="title">{toReadBook.bookInfo.title}</p>
                     <div className="bookButtons">
                       <Link className="link" to={`/moreInfo/${toReadBook.bookID}`}>More info</Link>
                       <Link className="link" to={`/moveBook/${toReadBook.bookID}`}>Move</Link>
@@ -118,7 +118,7 @@ function DisplayBooks({ allBooks }){
         </li>
       </ul>
      
-    </>
+    </div>
   )
 }
 

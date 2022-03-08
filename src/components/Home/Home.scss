@@ -16,12 +16,18 @@
     width: 50%;
     padding: 5px 10px;
     font-size: clamp(1rem, 2.5vw, 2rem);
-    border: 2px solid $whiteText;
+    border: 2px solid $secondaryColor;
     border-radius: 5px;
     background-color: $primaryColor;
     color: $whiteText;
+    font-weight: 600;
     transition: all .7s;
   }
+  .link.addBook{
+    z-index: 9999;
+    font-size: clamp(1rem, 2vw, 2rem);
+  }
+
   .link:hover,
   .link:focus-within {
     border: 2px solid $primaryColor;

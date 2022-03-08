@@ -1,12 +1,29 @@
 @import "../../colors";
 
-h2 {
-  margin: 0;
-  text-align: right;
-  color: $primaryColor;
-  padding-right: .6em;
-  padding-top: .4em;
+.bookshelfContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  h2, h3 {
+    margin: 0;
+    text-align: right;
+    color: $primaryColor;
+    padding: 30px 40px;
+    border: 2px solid $primaryColor;
+    border-radius: 10px;
+    background-color: $secondaryColor;
+    font-size: clamp(1.3rem, 2vw, 1.9rem);
+    
+  }
+  h2 {
+    width: 75%;
+    margin-top: 15px;
+    font-size: clamp(1.6rem, 2vw, 2rem);
+  }
 }
+
+
 
 ul {
   list-style: none;
@@ -15,54 +32,101 @@ ul {
 
 .bookshelf {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(1fr);
   grid-auto-rows: repeat(1fr);
   gap: 2em;
   text-align: right;
   margin-bottom: 0;
-
-  ul, ul li {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
   
-  .bookshelfRead, .bookshelfCurrentlyReading,
-  .bookshelfToRead {
-    flex-direction: column;
-    align-items: flex-end;
+  .read, .currentlyReading,
+  .toRead {
+  
     border: 2px solid $secondaryColor;
     border-radius: 10px;
     padding: 10px 30px;
-    background-color: $secondaryColorOpaque;
-    margin-left: 5%;
+    background-color: $backgroundOpaque;
+    width: auto;
 
     li {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
       background-color: $background;
-      margin: 5px 0;
-      padding-left: 15px;
-      padding-right: 10px;
+      border: 2px solid $secondaryColor;
       border-radius: 10px;
-      max-width: 75%;
+      margin: 5px 0;
+      padding: 20px 30px;
+      border-radius: 10px;
+      max-width: 190px;
+
+      img{
+        box-shadow: 2px 2px $background;
+      }
     }
 
-    p{
-      font-size: clamp(1rem, 2vw, 1.4rem);
+    p.title{
+      text-align: center;
+      font-size: clamp(.9rem, 2vw, 1rem);
     }
   }
 
   .bookButtons {
     display: flex;
     flex-direction: column;
-    margin-left: 15px;
+    margin-top: 15px;
 
     .link {
       min-width: 90px;
       max-width: 300px;
-      font-size: clamp(0.7rem, 2vw, 1rem);
+      font-size: clamp(0.7rem, 1.4vw, 1rem);
       position: static;
       padding: 2px 5px;
+      margin: 5px auto;
     }
   }
   
+}
+
+// media queries
+@media only screen and (min-width: 768px){
+  .bookshelfContainer{
+    h2 {
+      width: 89%;
+    }
+  }
+  .bookshelf{
+    .read, .currentlyReading,
+    .toRead {
+      grid-template-columns: minmax(190px, 220px) 1fr 1fr;
+      
+    }
+  }
+}
+
+@media only screen and (min-width: 1128px){
+  .bookshelfContainer{
+    h2 {
+      width: 95%;
+    }
+  }
+  .bookshelf{
+    width: 90%;
+    .read, .currentlyReading,
+    .toRead {
+      grid-template-columns: minmax(190px, 220px) 1fr 1fr 1fr;
+      .link {
+        min-width: 115px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1375px){
+  .bookshelf{
+    .read, .currentlyReading,
+    .toRead {
+      grid-template-columns: minmax(190px, 220px) 1fr 1fr 1fr 1fr;
+    }
+  }
 }
