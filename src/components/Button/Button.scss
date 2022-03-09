@@ -1,11 +1,11 @@
 @import "../../colors";
 
 button {
-  width: 50%;
+  width: 30%;
   margin: 3px auto;
   font-size: clamp(1rem, 2vw, 2rem);
   text-transform: uppercase;
-  border: 2px solid $whiteText;
+  border: 2px solid $secondaryColor;
   border-radius: 5px;
   background-color: $primaryColor;
   color: $whiteText;

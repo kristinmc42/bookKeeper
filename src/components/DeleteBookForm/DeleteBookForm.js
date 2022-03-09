@@ -4,11 +4,12 @@
 
 
 import React from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import firebase from "../../firebase.js";
 import Button from "../Button/Button";
 import Card from "../Card/Card.js";
 import "./DeleteBookForm.scss";
+import Cancel from "../Cancel/Cancel.js";
 
 
 function DeleteBookForm() {
@@ -38,7 +39,7 @@ function DeleteBookForm() {
           
           <Button id="yesButton" text="Yes" className="yesButton"/>
 
-          <Link className="cancel" to="/">Cancel</Link>
+          <Cancel />
 
         </form>
       </Card>

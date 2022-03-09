@@ -15,12 +15,13 @@ import firebase from "../../firebase.js";
 import "./AddBookForm.scss";
 import Button from "../Button/Button.js";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Card from "../Card/Card.js";
 import Select from "../Select/Select.js";
 import axios from "axios";
 import DisplayTitleOptions from "../DisplayTitleOptions/DisplayTitleOptions";
 import ErrorMessage from "../ErrorMessage/ErrorMessage.js";
+import Cancel from "../Cancel/Cancel.js";
 
 
 
@@ -175,7 +176,7 @@ function AddBookForm () {
             <Select name="readStatus" id="readStatus" onChange={handleOptionChange} />
             <Button text="Add to bookshelf" className="addBookButton" />
 
-            <Link className="cancel" to="/">Cancel</Link>
+            <Cancel />
            </form>
         </Card>
 
@@ -193,7 +194,7 @@ function AddBookForm () {
               value={userInput}
               />
             <Button text="Find book" className="findBookButton" />
-            <Link className="cancel" to="/">Cancel</Link>
+            <Cancel />
           </form>
         </Card>
   

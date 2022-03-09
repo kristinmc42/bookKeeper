@@ -1,9 +1,10 @@
 
 import Card from "../Card/Card";
 import { useState, useEffect } from "react";
-import { Link,  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import firebase from "../../firebase";
 import "./MoreInfo.scss";
+import Cancel from "../Cancel/Cancel";
 
 function MoreInfo() {
   // init state for bookInfo
@@ -93,7 +94,7 @@ function MoreInfo() {
           :null
           }
 
-        <Link className="cancel" to="/">Close</Link>
+        <Cancel />
         </div>
       </Card>
     </>

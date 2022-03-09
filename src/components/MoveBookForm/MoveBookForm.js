@@ -14,6 +14,7 @@ import firebase from "../../firebase.js";
 import Button from "../Button/Button";
 import Card from "../Card/Card.js";
 import Select from "../Select/Select.js";
+import Cancel from "../Cancel/Cancel.js";
 import "./MoveBookForm.scss";
 
 
@@ -62,7 +63,7 @@ function MoveBookForm() {
             <label htmlFor="moveBookCategory">Where would you like to move this book to?</label>
             <Select name="moveBook" id="moveBookCategory" onChange={handleOptionChange} />
             <Button className="moveBookButton" text="Move Book"/>
-            <Link className="cancel" to="/">Cancel</Link>
+            <Cancel />
           </form>
 
       </Card>
