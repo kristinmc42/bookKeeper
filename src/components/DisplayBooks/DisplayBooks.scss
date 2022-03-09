@@ -15,14 +15,15 @@
     margin: 0;
     text-align: right;
     color: $primaryColor;
-    padding: 30px 40px;
+    padding: 25px 40px 15px 40px;
     font-size: clamp(1.3rem, 2vw, 1.9rem);
-    
+   
   }
   h2 {
-    width: 75%;
+    width: 90%;
     margin-top: 15px;
     font-size: clamp(1.6rem, 2vw, 2rem);
+    padding: 30px 40px;
   }
 }
 
@@ -40,26 +41,36 @@ ul {
   gap: 2em;
   text-align: right;
   margin-bottom: 0;
+  width: 90%;
+
+  .bookshelfDetails {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 5px;
+  }
+
+  h4 {
+    margin: 0;
+    
+  }
 
   .expand{
-    border: 2px solid $whiteText;
+    border: 2px solid $secondaryColor;
     border-radius: 5px;
-    background-color: $primaryColor;
-    color: $whiteText;
-    transition: all .7s;
+    background-color: $secondaryColor;
+    color: $blackText;
+    text-align: right;
+    padding-right: 35px;
+    width: 5%;
+    margin: 0 25px 0 15px;
   }
 
-  .expand:hover,
-  .expand:focus-within {
-    border: 2px solid $secondaryColor;
-    // background-color: $primaryColor;
-    color: $whiteText;
-  
-  }
+ 
   
   .read, .currentlyReading,
   .toRead {
-  
+    justify-content: center;
     border: 2px solid $secondaryColor;
     border-radius: 10px;
     padding: 10px 30px;
@@ -96,7 +107,7 @@ ul {
     margin-top: 15px;
 
     .link {
-      min-width: 90px;
+      min-width: 100px;
       max-width: 300px;
       font-size: clamp(0.7rem, 1.4vw, 1rem);
       position: static;
@@ -108,12 +119,20 @@ ul {
 }
 
 // media queries
-@media only screen and (min-width: 768px){
-  .bookshelfContainer{
-    h2 {
-      width: 89%;
+
+@media only screen and (min-width: 620px){
+ 
+  .bookshelf{
+    .read, .currentlyReading,
+    .toRead {
+      grid-template-columns: minmax(190px, 220px) 1fr;
+      
     }
   }
+}
+
+@media only screen and (min-width: 847px){
+ 
   .bookshelf{
     .read, .currentlyReading,
     .toRead {
@@ -124,18 +143,13 @@ ul {
 }
 
 @media only screen and (min-width: 1128px){
-  .bookshelfContainer{
-    h2 {
-      width: 95%;
-    }
-  }
+  
   .bookshelf{
-    width: 90%;
     .read, .currentlyReading,
     .toRead {
       grid-template-columns: minmax(190px, 220px) 1fr 1fr 1fr;
       .link {
-        min-width: 115px;
+        min-width: 125px;
       }
     }
   }

@@ -9,7 +9,7 @@
 
 import React from "react";
 import { useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import firebase from "../../firebase.js";
 import Button from "../Button/Button";
 import Card from "../Card/Card.js";

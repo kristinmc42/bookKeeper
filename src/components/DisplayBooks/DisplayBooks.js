@@ -9,6 +9,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./DisplayBooks.scss";
 import Button from "../Button/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExpand, faCompress } from "@fortawesome/free-solid-svg-icons";
 
 function DisplayBooks({ allBooks }){
   // initialize state for arrays of books by category
@@ -60,8 +62,19 @@ function DisplayBooks({ allBooks }){
         <li>
           <div className="bookshelfTitle">
             <h3>Read</h3>
-             {/* expand or minimize bookshelves */}
-            <Button className="expand"onClick={() => {showRead ?setShowRead(false) :setShowRead(true)}} text={showRead ? "minimize" : "expand"}/>
+            {/* displays number of titles */}
+            <div className="bookshelfDetails">
+              {
+                readBooks && <h4>{readBooks.length} titles</h4>
+              }
+              {/* expand or minimize bookshelves */}
+              <Button 
+                className="expand"
+                onClick={() => {showRead ?setShowRead(false) :setShowRead(true)}} 
+                text={showRead 
+                    ? <>< span className="srOnly">Expand read bookshelf</span><FontAwesomeIcon icon={faCompress} /></> 
+                    : <><span className="srOnly">Minimize read bookshelf</span><FontAwesomeIcon icon={faExpand} /></>}/>
+            </div>
           </div>
           {
             showRead
@@ -91,8 +104,20 @@ function DisplayBooks({ allBooks }){
         <li>
           <div className="bookshelfTitle">
             <h3>Currently Reading</h3>
-            {/* expand or minimize bookshelves */}
-              <Button className="expand" onClick={() => {showCurrentlyReading ? setShowCurrentlyReading(false) : setShowCurrentlyReading(true)}} text={showCurrentlyReading ? "minimize" : "expand"} />
+            <div className="bookshelfDetails">
+              {/* displays number of titles */}
+              {
+                booksCurrentlyReading && <h4>{booksCurrentlyReading.length} titles</h4>
+              }
+              {/* expand or minimize bookshelves */}
+                <Button 
+                  className="expand" 
+                  onClick={() => {showCurrentlyReading ? setShowCurrentlyReading(false) : setShowCurrentlyReading(true)}} 
+                  text={showCurrentlyReading
+                    ? <>< span className="srOnly">Expand currently reading bookshelf</span><FontAwesomeIcon icon={faCompress} /></> 
+                    : <><span className="srOnly">Minimize currently reading bookshelf</span><FontAwesomeIcon icon={faExpand} /></>} 
+                  />
+            </div>
           </div>
           {
             showCurrentlyReading
@@ -122,8 +147,20 @@ function DisplayBooks({ allBooks }){
         <li>
           <div className="bookshelfTitle">
             <h3>To Read</h3>
-             {/* expand or minimize bookshelves */}
-            <Button className="expand" onClick={() => {showToRead ?setShowToRead(false) :setShowToRead(true)}} text={showToRead ? "minimize" : "expand"} />
+            <div className="bookshelfDetails">
+              {/* displays number of titles */}
+              {
+                booksToRead && <h4>{booksToRead.length} titles</h4>
+              }
+              {/* expand or minimize bookshelves */}
+              <Button 
+                className="expand" 
+                onClick={() => {showToRead ?setShowToRead(false) :setShowToRead(true)}} 
+                text={showToRead 
+                  ? <>< span className="srOnly">Expand to read bookshelf</span><FontAwesomeIcon icon={faCompress} /></> 
+                  : <><span className="srOnly">Minimize to read bookshelf</span><FontAwesomeIcon icon={faExpand} /></>} 
+              />
+            </div>
           </div>
           {
             showToRead
