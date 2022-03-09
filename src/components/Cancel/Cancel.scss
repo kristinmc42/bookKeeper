@@ -1,0 +1,33 @@
+@import "../../colors";
+
+.cancel {
+  min-width: 140px;
+  max-width: 290px;
+  width: 50%;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 3em auto;
+  padding: 1px 4px;
+  font-size: clamp(1rem, 2vw, 2rem);
+  font-weight: 600;
+  border: 2px solid $secondaryColor;
+  border-radius: 5px;
+  background-color: $primaryColor;
+  color: $whiteText;
+  transition: all .7s;
+}
+
+.cancel:hover,
+.cancel:focus-within {
+  border: 2px solid $primaryColor;
+  background-color: $secondaryColor;
+  color: $blackText;
+}
+
+
+@media only screen and (min-width: 1000px){
+  .cancel {
+    font-size: 1.2rem;
+  }
+}

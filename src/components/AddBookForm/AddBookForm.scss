@@ -5,35 +5,12 @@
   max-width: 1200px;
 }
 
-// button/link styling
+// button styling
 
-.findBookButton,
-.cancel {
+.findBookButton {
   min-width: 140px;
   max-width: 300px;
   width: 55%;
- 
-}
-
-.cancel {
-  width: 50%;
-  text-decoration: none;
-  text-transform: uppercase;
-  margin: 3em auto;
-  padding: 1px 4px;
-  font-size: clamp(1rem, 2vw, 2rem);
-  border: 2px solid $whiteText;
-  border-radius: 5px;
-  background-color: $primaryColor;
-  color: $whiteText;
-  transition: all .7s;
-}
-
-.cancel:hover,
-.cancel:focus-within {
-  border: 2px solid $primaryColor;
-  background-color: $secondaryColor;
-  color: $blackText;
 }
 
 
@@ -127,7 +104,6 @@ ul.titleOptions{
 
 @media only screen and (min-width: 1000px){
   .findBookButton,
-  .cancel,
   .selectedTitle,
   .addBookButton {
     font-size: 1.2rem;
