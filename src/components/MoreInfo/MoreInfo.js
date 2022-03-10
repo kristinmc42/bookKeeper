@@ -23,7 +23,6 @@ function MoreInfo() {
       if (snapshot.exists()){
         const book = snapshot.val();
         setBookInfo(book);
-        console.log(book);
       }
     }).catch((error) => {
       console.log(error);
