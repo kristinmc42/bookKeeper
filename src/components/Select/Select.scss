@@ -3,3 +3,8 @@
 select {
   color: $blackText;
 }
+
+::-moz-selection,
+::selection {
+  color: $blackText;
+}
