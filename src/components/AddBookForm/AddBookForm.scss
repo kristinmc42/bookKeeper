@@ -27,8 +27,8 @@ form {
   border-radius: 10px;
   max-width: 1200px;
 
-  input, select{
-    background-color: $background;
+  input{
+    background-color: $selectBackground;
     border: 2px double $secondaryColor;
     border-radius: 5px;
     box-shadow: 3px 3px $blackText;
@@ -38,14 +38,14 @@ form {
     width: 50%;
     min-width: 250px;
 
-    // ::placeholder,
-    // :-ms-input-placeholder,
-    // ::-moz-placeholder,
-    // ::-webkit-input-placeholder,
-    // :-moz-placeholder {
-    //   color: $whiteText;
-    //   opacity: 1;
-    // }
+  }
+  ::placeholder,
+  :-ms-input-placeholder,
+  ::-moz-placeholder,
+  ::-webkit-input-placeholder,
+  :-moz-placeholder {
+    color: $blackText;
+    opacity: 1;
   }
 
 

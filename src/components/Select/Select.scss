@@ -2,11 +2,21 @@
 
 select {
   color: $blackText;
+  background-color: $selectBackground;
+  border: 2px double $secondaryColor;
+  border-radius: 5px;
+  box-shadow: 3px 3px $blackText;
+  font-size: 1rem;
+  padding: .4em;
+  margin: .6em 0;
+  width: 50%;
+  min-width: 250px;
 }
 
 ::-moz-selection,
 ::selection {
   color: $blackText;
   opacity: 1;
+  background-color: $selectBackground;
 }
 
