@@ -17,8 +17,10 @@ function App() {
     <Router>
       <div className="pageContainer">
         <header>
-          <h1>Book Keeper</h1>
-          <p>Catalogue your collection of books you have read, are currently reading as well as your wishlist of books you want to read. </p>
+          <div className="wrapper">
+            <h1>Book Keeper</h1>
+            <p>Keep track of the books you have read, are currently reading, as well as your wishlist of books you want to read. </p>
+          </div>
         </header>
 
         <main>
