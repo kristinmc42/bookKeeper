@@ -38,15 +38,16 @@ form {
     width: 50%;
     min-width: 250px;
 
-    ::placeholder,
-    :-ms-input-placeholder,
-    ::-moz-placeholder,
-    ::-webkit-input-placeholder,
-    :-moz-placeholder {
-      color: $blackText;
-      opacity: 1;
-    }
+    // ::placeholder,
+    // :-ms-input-placeholder,
+    // ::-moz-placeholder,
+    // ::-webkit-input-placeholder,
+    // :-moz-placeholder {
+    //   color: $whiteText;
+    //   opacity: 1;
+    // }
   }
+
 
   label {
     font-size: clamp(1.3rem, 2.6vw, 4.5rem);

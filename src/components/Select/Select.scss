@@ -7,4 +7,6 @@ select {
 ::-moz-selection,
 ::selection {
   color: $blackText;
+  opacity: 1;
 }
+
