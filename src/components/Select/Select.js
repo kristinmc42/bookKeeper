@@ -1,3 +1,4 @@
+import "./Select.scss";
 
 function Select({ name, id, onChange }){
   return (

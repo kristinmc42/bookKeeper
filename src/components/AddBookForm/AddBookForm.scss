@@ -40,7 +40,9 @@ form {
 
     ::placeholder,
     :-ms-input-placeholder,
-    ::-ms-input-placeholder {
+    ::-moz-placeholder,
+    ::-webkit-input-placeholder,
+    :-moz-placeholder {
       color: $blackText;
       opacity: 1;
     }
