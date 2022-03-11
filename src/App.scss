@@ -31,14 +31,14 @@ main {
   flex: 1 1 auto;
   background-image: url(../public/books.jpg);
   background-size: cover;
-  background-position: center center;
+  background-position: left;
   // background-repeat: no-repeat;
   background-attachment: fixed;
   background-color: $background;
   margin: 0;
   width: auto;
   max-width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 header {
@@ -78,3 +78,4 @@ footer {
     padding: .5em;
   }
 }
+
