@@ -26,7 +26,7 @@ function DisplayTitleOptions({ id, title, authors, image, alt }) {
             {
               authors.map((author, index) => {
                 return(
-                  <>
+                  <span key={index + author}>
                   {author}
                   {
                     //  prints a comma after the author unless it is the last one in the array
@@ -36,7 +36,7 @@ function DisplayTitleOptions({ id, title, authors, image, alt }) {
                   :null
                   
                   }
-                  </>
+                  </span>
                 )
               })
             }
