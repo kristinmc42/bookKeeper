@@ -6,13 +6,13 @@
   align-items: flex-end;
   padding-bottom: 20px;
 
-  .bookshelfTitle, h2 {
+  .bookshelfTitle {
     border: 2px solid $primaryColor;
     border-radius: 10px;
     background-color: $secondaryColor;
   }
 
-  h2, h3 {
+  h3 {
     margin: 0;
     text-align: right;
     color: $primaryColor;
@@ -20,10 +20,16 @@
     font-size: clamp(1.3rem, 2vw, 1.9rem);
    
   }
+
   h2 {
+    color: $primaryColor;
+    background-color: $background;
+    border: 2px solid $secondaryColor;
+    border-radius: 10px;
     width: 90%;
-    margin-top: 15px;
     font-size: clamp(1.6rem, 2vw, 2rem);
+    text-align: center;
+    margin-top: 15px;
     padding: 30px 40px;
   }
 }
@@ -112,7 +118,7 @@ ul {
       max-width: 300px;
       font-size: clamp(0.7rem, 1.4vw, 1rem);
       position: static;
-      padding: 2px 5px;
+      padding: 1px 5px 2px 5px;
       margin: 5px auto;
     }
   }

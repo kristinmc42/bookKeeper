@@ -11,17 +11,17 @@
 // in the handle submit, the navigation is changed to Home and the user is returned to their book list
 
 
-import firebase from "../../firebase.js";
 import "./AddBookForm.scss";
-import Button from "../Button/Button.js";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import Card from "../Card/Card.js";
-import Select from "../Select/Select.js";
 import axios from "axios";
+import firebase from "../../firebase.js";
+import Button from "../Button/Button.js";
+import Cancel from "../Cancel/Cancel.js";
+import Card from "../Card/Card.js";
 import DisplayTitleOptions from "../DisplayTitleOptions/DisplayTitleOptions";
 import ErrorMessage from "../ErrorMessage/ErrorMessage.js";
-import Cancel from "../Cancel/Cancel.js";
+import Select from "../Select/Select.js";
 
 
 
@@ -40,6 +40,9 @@ function AddBookForm () {
 
   // init history
   let navigate = useNavigate();
+
+  // init ref 
+  const titleRef = useRef(null);
 
   // track user input
   const handleInputChange = (event) => {
@@ -99,11 +102,20 @@ function AddBookForm () {
     }
   }
 
+  // scrolls to title selections after API results displayed
+  useEffect(() => {
+    if(searchOptions.length > 0){
+     titleRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [searchOptions])
+  
+
+
   // when user selects a title from the options to add to a bookshelf
   const handleBookSelected = (event) => {
     // find the option info that matches the selected id
     const chosenTitle = searchOptions.filter(option => option.id === event.target.value);
-    console.log("book was selected. bookshelf option should be shown")
+   
     // save the selected book to state
     setBookToAdd(chosenTitle);
 
@@ -125,7 +137,7 @@ function AddBookForm () {
     if (optionChoice && bookToAdd){
       const bookID = dbRef.push().getKey();
       const addedBook = bookToAdd[0];
-      console.log(addedBook)
+     
       const bookInfo = {
         id: addedBook.id,
         title: addedBook.volumeInfo.title,
@@ -202,8 +214,8 @@ function AddBookForm () {
         {/* if there are search options, map through the options and display the info from the API call */}
         {
           searchOptions.length > 0
-          ? <Card className="titleOptions">
-              <ul className="titleOptions">
+          ? <Card className="titleOptions" >
+              <ul className="titleOptions" ref={titleRef}>
                 {
                   searchOptions.map(optionItem => {
                 
