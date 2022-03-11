@@ -8,6 +8,7 @@ import DeleteBookForm from "./components/DeleteBookForm/DeleteBookForm";
 import Home from "./components/Home/Home";
 import MoreInfo from "./components/MoreInfo/MoreInfo";
 import MoveBookForm from "./components/MoveBookForm/MoveBookForm";
+import ScrollToTop from "react-scroll-to-top";
 
 
 
@@ -16,6 +17,7 @@ function App() {
     <>
     <Router>
       <div className="pageContainer">
+        <ScrollToTop smooth />
         <header>
           <div className="wrapper">
             <h1>Book Keeper</h1>
