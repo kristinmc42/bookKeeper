@@ -9,6 +9,8 @@ import Home from "./components/Home/Home";
 import MoreInfo from "./components/MoreInfo/MoreInfo";
 import MoveBookForm from "./components/MoveBookForm/MoveBookForm";
 import ScrollToTop from "react-scroll-to-top";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -17,7 +19,7 @@ function App() {
     <>
     <Router>
       <div className="pageContainer">
-        <ScrollToTop smooth />
+        <ScrollToTop smooth component={<><FontAwesomeIcon icon={faAngleUp} /><p>TOP</p></>} style={{left: "-75%", background:"lightgrey", border: "2px solid grey"}}/>
         <header>
           <div className="wrapper">
             <h1>Book Keeper</h1>
