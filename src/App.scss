@@ -31,8 +31,8 @@ main {
   flex: 1 1 auto;
   background-image: url(../public/books.jpg);
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-position: center center;
+  // background-repeat: no-repeat;
   background-attachment: fixed;
   background-color: $background;
   margin: 0;
