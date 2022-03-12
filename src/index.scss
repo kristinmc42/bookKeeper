@@ -1,4 +1,5 @@
 @import "setup";
+@import "colors";
 
 body {
   margin: 0;
@@ -11,9 +12,11 @@ body {
 code, html {
     font-family: 'Raleway', sans-serif;
     font-size: 125%;
+    color: $whiteText;
 }
 
 h1, h2 {
   font-family: 'Montserrat Subrayada', sans-serif;  
 }
+
 

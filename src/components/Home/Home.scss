@@ -6,32 +6,46 @@
   width: 95%;
   padding-top: 10px;
 
-  // .link {
-  //   position: sticky;
-  //   top: 0;
-  //   z-index: 70;
-  //   text-decoration: none;
-  //   text-align: center;
-  //   text-transform: uppercase;
-  //   width: 50%;
-  //   padding: 5px 10px;
-  //   font-size: clamp(1rem, 2.5vw, 2rem);
-  //   border: 2px solid $secondaryColor;
-  //   border-radius: 5px;
-  //   background-color: $primaryColor;
-  //   color: $whiteText;
-  //   font-weight: 600;
-  //   transition: all .7s;
-  // }
-  // .link.addBook{
-  //   z-index: 9999;
-  //   font-size: clamp(1rem, 2vw, 2rem);
-  // }
+  .link {
+    position: sticky;
+    top: 0;
+    z-index: 70;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    width: 50%;
+    padding: 5px 10px;
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    border: 2px solid $secondaryColor;
+    border-radius: 5px;
+    background-color: $primaryColor;
+    color: $whiteText;
+    font-weight: 600;
+    transition: all .7s;
+  }
 
-  // .link:hover,
-  // .link:focus-within {
-  //   border: 2px solid $primaryColor;
-  //   background-color: $secondaryColor;
-  //   color: $blackText;
-  // }
+  .link.addBook{
+    z-index: 9999;
+    left: 90%;
+    border: 2px solid $primaryColor;
+    background-color: $secondaryColor;
+    color: $blackText;
+    font-size: clamp(1rem, 2vw, 2rem);
+    margin-bottom: .5em;
+    max-width: 350px;
+  }
+
+  .link.addBook:hover,
+  .link.addBook:focus-within {
+    background-color: $primaryColor;
+    color: $whiteText;
+    border: 2px solid $secondaryColor;
+  }
+
+  .link:hover,
+  .link:focus-within {
+    border: 2px solid $primaryColor;
+    background-color: $secondaryColor;
+    color: $blackText;
+  }
 }

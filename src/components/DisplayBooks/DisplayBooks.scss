@@ -55,6 +55,7 @@ ul {
     justify-content: flex-end;
     align-items: center;
     padding-bottom: 5px;
+    color: $blackText;
   }
 
   h4 {
@@ -89,9 +90,11 @@ ul {
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      background-color: $background;
+      background-color: $blackText;
       border: 2px solid $secondaryColor;
       border-radius: 10px;
+      color: $whiteText;
+      font-weight: 600;
       margin: 5px 0;
       padding: 20px 30px;
       border-radius: 10px;
