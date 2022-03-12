@@ -57,7 +57,7 @@ function DisplayBooks({ allBooks }){
 
   return(
     <div className="bookshelfContainer">
-      <h2>My Books</h2>
+      {/* <h2>My Books</h2> */}
       <ul className="bookshelf">
         <li>
           <div className="bookshelfTitle">

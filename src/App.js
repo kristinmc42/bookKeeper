@@ -1,7 +1,7 @@
 // app component has header, Routes and footer
 
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import "./App.scss";
 import AddBookForm from "./components/AddBookForm/AddBookForm";
 import DeleteBookForm from "./components/DeleteBookForm/DeleteBookForm";
@@ -24,6 +24,7 @@ function App() {
           <div className="wrapper">
             <h1>Book Keeper</h1>
             <p>Keep track of the books you have read, are currently reading, as well as your wishlist of books you want to read. </p>
+            <Link className="link addBook" to="/addBook">Add a book</Link>
           </div>
         </header>
 

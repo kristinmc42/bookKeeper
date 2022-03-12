@@ -5,8 +5,81 @@
   flex-direction: column;
   height: 100%;
   min-height: 100vh;
+  position: relative;
+}
 
- 
+header {
+  position: sticky;
+  top: 0;
+  background-color: $background;
+  z-index: 99999;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    max-width: 1600px;
+    width: 95%;
+    padding-top: 10px;
+    margin: 0 auto;
+
+    h1 {
+      margin: 0;
+      padding: .5em;
+      text-align: right;
+      color: $header;
+      font-size: clamp(2rem, 4vw, 3rem);
+      border: 2px solid $primaryColor;
+      border-radius: 10px;
+      background-color: $secondaryColor;
+    }
+  
+    p{
+      font-size: clamp(.9rem, 2vw, 1.4rem);
+      text-align: right;
+      padding: 0 .5em;
+    }
+
+  }
+  
+}
+
+.link {
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  width: 50%;
+  padding: 5px 10px;
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  border: 2px solid $secondaryColor;
+  border-radius: 5px;
+  background-color: $primaryColor;
+  color: $whiteText;
+  font-weight: 600;
+  transition: all .7s;
+}
+.link.addBook{
+  border: 2px solid $primaryColor;
+  background-color: $secondaryColor;
+  color: $blackText;
+  font-size: clamp(1rem, 2vw, 2rem);
+  margin-bottom: .5em;
+  max-width: 350px;
+}
+
+.link.addBook:hover,
+.link.addBook:focus-within {
+  background-color: $primaryColor;
+  color: $whiteText;
+  border: 2px solid $secondaryColor;
+}
+
+
+.link:hover,
+.link:focus-within {
+  border: 2px solid $primaryColor;
+  background-color: $secondaryColor;
+  color: $blackText;
 }
 
 // // scroll to top button - move to left side of screen
@@ -29,43 +102,23 @@ main {
   justify-content: flex-start;
   align-items: center;
   flex: 1 1 auto;
-  background-image: url(../public/books.jpg);
-  background-size: cover;
-  background-position: left;
-  // background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-color: $background;
-  margin: 0;
-  width: auto;
-  max-width: 100%;
-  height: 100%;
+  // bg image from https://heropatterns.com/
+  background-color: #919191;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23baf3f9' fill-opacity='0.4'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+
+  // background-image: url(../public/alternating-arrowhead.svg);
+  // background-size: cover;
+  // background-position: center;
+  // // background-repeat: no-repeat;
+  // background-attachment: fixed;
+  // background-color: $background;
+  // margin: 0;
+  // width: auto;
+  // max-width: 100%;
+  // height: 100%;
 }
 
-header {
-  background-color: $background;
-  border: 2px solid $secondaryColor;
-  .wrapper {
-    max-width: 1200px;
-    width: 95%;
-    padding-top: 10px;
-    margin: 0 auto;
-
-    h1 {
-      margin: 0;
-      padding: .5em;
-      text-align: center;
-      color: $header;
-      font-size: clamp(2rem, 4vw, 3rem);
-    }
-  
-    p{
-      font-size: clamp(.9rem, 2vw, 1.4rem);
-      text-align: center;
-      padding: 0 .5em;
-    }
-  }
-
-}
 
 footer {
   left: 0;
