@@ -27,7 +27,7 @@ function App() {
             <h1>Book Keeper</h1>
             <Typewriter 
               onInit={(typewriter) => {
-                typewriter.typeString("Keep track of the books you have read").pauseFor(2000).deleteAll().typeString("are currently reading").pauseFor(2000).deleteAll().typeString("or want to read").pauseFor(2000).deleteAll().start()
+                typewriter.typeString("Keep track of books you have read").pauseFor(1500).deleteAll().typeString("are currently reading").pauseFor(1500).deleteAll().typeString("or want to read").pauseFor(1500).deleteAll().start()
               }}
             />
           </div>
