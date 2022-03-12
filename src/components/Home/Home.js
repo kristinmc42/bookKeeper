@@ -7,6 +7,7 @@
 
 import React from "react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import firebase from "../../firebase";
 import DisplayBooks from "../DisplayBooks/DisplayBooks.js";
 import "./Home.scss";
@@ -42,6 +43,7 @@ function Home() {
 
   return(
     <div className="wrapper">
+      <Link className="link addBook" to="/addBook">Add a book</Link>
       <DisplayBooks allBooks={ books }/>
     </div>
   )
