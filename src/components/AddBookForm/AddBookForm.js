@@ -10,8 +10,7 @@
 // when the form is submitted, the book info is stored in the firebase realtime database
 // in the handle submit, the navigation is changed to Home and the user is returned to their book list
 
-
-import "./AddBookForm.scss";
+import React from "react";
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -22,6 +21,7 @@ import Card from "../Card/Card.js";
 import DisplayTitleOptions from "../DisplayTitleOptions/DisplayTitleOptions";
 import ErrorMessage from "../ErrorMessage/ErrorMessage.js";
 import Select from "../Select/Select.js";
+import "./AddBookForm.scss";
 
 
 

@@ -3,8 +3,8 @@ import Card from "../Card/Card";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import firebase from "../../firebase";
-import "./MoreInfo.scss";
 import Cancel from "../Cancel/Cancel";
+import "./MoreInfo.scss";
 
 function MoreInfo() {
   // init state for bookInfo
