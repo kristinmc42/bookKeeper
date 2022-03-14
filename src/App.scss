@@ -42,18 +42,18 @@ header {
 
 
 // // scroll to top button - move to left side of screen
-// .styles_scroll-to-top__2A70v {
-//   color: $whiteText;
-//   font-size: .8rem;
-//   padding: 0;
-//   border: 2px solid $secondaryColor;
+.styles_scroll-to-top__2A70v {
+  color: $blackText;
+  font-size: .8rem;
+  padding: 0;
+  border: 2px solid $secondaryColor;
  
 
-//   p{
-//     padding: 0;
-//     margin: 0;
-//   }
-// }
+  p{
+    padding: 0;
+    margin: 0;
+  }
+}
 
 main {
   display: flex;

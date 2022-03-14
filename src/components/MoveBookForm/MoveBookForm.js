@@ -12,9 +12,9 @@ import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import firebase from "../../firebase.js";
 import Button from "../Button/Button";
+import Cancel from "../Cancel/Cancel.js";
 import Card from "../Card/Card.js";
 import Select from "../Select/Select.js";
-import Cancel from "../Cancel/Cancel.js";
 import "./MoveBookForm.scss";
 
 
@@ -32,6 +32,7 @@ function MoveBookForm() {
 
    // track option change
   const handleOptionChange = (event) => {
+    event.preventDefault();
     // updates state to option selected by user
     setOptionChoice(event.target.value);
   }
@@ -40,18 +41,22 @@ function MoveBookForm() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
+
     // get title from firebase using id
     const dbItem = firebase.database().ref(id);
     
-    if (optionChoice !== ""){
+    if (optionChoice !== "" ){
       // when new category selected update category for that book
       
      dbItem.child("category").set(optionChoice);
      
+
+        // route back to Home
+        navigate("/");
+
+
     }
 
-    // route back to Home
-    navigate("/");
   }
 
 

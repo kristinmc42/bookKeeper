@@ -4,13 +4,12 @@
 // each are mapped through to display an image of each title according to their categories
 // links are displayed for each title for more info, to move or to delete the title
 
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./DisplayBooks.scss";
-import Button from "../Button/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExpand, faCompress } from "@fortawesome/free-solid-svg-icons";
+import Button from "../Button/Button";
+import "./DisplayBooks.scss";
 
 function DisplayBooks({ allBooks }){
   // initialize state for arrays of books by category
@@ -57,7 +56,6 @@ function DisplayBooks({ allBooks }){
 
   return(
     <div className="bookshelfContainer">
-      {/* <h2>My Books</h2> */}
       <ul className="bookshelf">
         <li>
           <div className="bookshelfTitle">
